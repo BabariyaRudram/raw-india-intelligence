@@ -1,5 +1,6 @@
 /* =========================================================
    R&AW — INTERACTION SCRIPT
+   Public-source educational project
 ========================================================= */
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -24,9 +25,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
       menuToggle.textContent = isOpen ? "×" : "☰";
     });
-
-
-    // Close menu after selecting a section
 
     navLinks.querySelectorAll("a").forEach(link => {
 
@@ -55,35 +53,44 @@ document.addEventListener("DOMContentLoaded", () => {
     ".timeline-card, .case-card, .person-card, .shadow-card, .source-card, .flow-step"
   );
 
-  const revealObserver = new IntersectionObserver(
-    (entries, observer) => {
+  if ("IntersectionObserver" in window) {
 
-      entries.forEach(entry => {
+    const revealObserver = new IntersectionObserver(
+      (entries, observer) => {
 
-        if (entry.isIntersecting) {
+        entries.forEach(entry => {
 
-          entry.target.classList.add("revealed");
+          if (entry.isIntersecting) {
 
-          observer.unobserve(entry.target);
+            entry.target.classList.add("revealed");
 
-        }
+            observer.unobserve(entry.target);
 
-      });
+          }
 
-    },
-    {
-      threshold: 0.12
-    }
-  );
+        });
 
+      },
+      {
+        threshold: 0.12
+      }
+    );
 
-  revealElements.forEach(element => {
+    revealElements.forEach(element => {
 
-    element.classList.add("reveal");
+      element.classList.add("reveal");
 
-    revealObserver.observe(element);
+      revealObserver.observe(element);
 
-  });
+    });
+
+  } else {
+
+    revealElements.forEach(element => {
+      element.classList.add("revealed");
+    });
+
+  }
 
 
   /* =========================
@@ -98,46 +105,421 @@ document.addEventListener("DOMContentLoaded", () => {
     ".nav-links a"
   );
 
-  const sectionObserver = new IntersectionObserver(
-    entries => {
+  if ("IntersectionObserver" in window) {
 
-      entries.forEach(entry => {
+    const sectionObserver = new IntersectionObserver(
+      entries => {
 
-        if (entry.isIntersecting) {
+        entries.forEach(entry => {
 
-          navItems.forEach(link => {
-            link.classList.remove("active");
-          });
+          if (entry.isIntersecting) {
 
-          const activeLink =
-            document.querySelector(
-              `.nav-links a[href="#${entry.target.id}"]`
-            );
+            navItems.forEach(link => {
+              link.classList.remove("active");
+            });
 
-          if (activeLink) {
-            activeLink.classList.add("active");
+            const activeLink =
+              document.querySelector(
+                `.nav-links a[href="#${entry.target.id}"]`
+              );
+
+            if (activeLink) {
+              activeLink.classList.add("active");
+            }
+
           }
 
-        }
+        });
 
-      });
+      },
+      {
+        rootMargin: "-35% 0px -55% 0px"
+      }
+    );
 
-    },
-    {
-      rootMargin: "-35% 0px -55% 0px"
-    }
-  );
+    sections.forEach(section => {
+      sectionObserver.observe(section);
+    });
 
-
-  sections.forEach(section => {
-    sectionObserver.observe(section);
-  });
+  }
 
 
   /* =========================
-     CASE FILE PLACEHOLDER
-     INTERACTION
+     CASE FILE DATA
   ========================== */
+
+  const caseData = {
+
+    "Bangladesh": {
+      number: "CASE 01",
+      year: "1971",
+      title: "Bangladesh",
+      status: "🟢 DOCUMENTED / HISTORICAL RECORD",
+
+      intro:
+        "The Bangladesh Liberation War became one of the defining episodes of R&AW's early history.",
+
+      sections: [
+        {
+          title: "THE BACKGROUND",
+          text:
+            "Political conflict in Pakistan's eastern wing escalated dramatically after the 1970 election crisis and the Pakistani military crackdown in East Pakistan. Millions of refugees crossed into India, creating an enormous humanitarian and security crisis."
+        },
+        {
+          title: "R&AW'S ROLE",
+          text:
+            "Public historical accounts describe Indian intelligence involvement in establishing contacts with Bengali resistance networks, collecting intelligence and supporting the wider Indian effort. R&AW was one component of a much larger Indian political, diplomatic and military response."
+        },
+        {
+          title: "THE BIGGER PICTURE",
+          text:
+            "The creation of Bangladesh cannot be attributed to a single agency. Bengali political mobilisation, the Mukti Bahini, India's military intervention, diplomacy and the wider international environment all played important roles."
+        },
+        {
+          title: "WHY IT MATTERS",
+          text:
+            "The 1971 experience demonstrated how intelligence, diplomacy, covert support and conventional military power could interact during a major regional crisis."
+        }
+      ]
+    },
+
+
+    "The Ganga": {
+      number: "CASE 02",
+      year: "1971",
+      title: "The Ganga",
+      status: "🔵 REPORTED / CONTESTED",
+
+      intro:
+        "The hijacking of an Indian Airlines aircraft became an important episode in India–Pakistan relations.",
+
+      sections: [
+        {
+          title: "WHAT HAPPENED",
+          text:
+            "Indian Airlines flight Ganga was hijacked on 30 January 1971 and taken to Lahore, Pakistan. The aircraft was eventually destroyed there."
+        },
+        {
+          title: "THE INTELLIGENCE STORY",
+          text:
+            "Later accounts by former intelligence officials have described the episode as connected to an intelligence operation and to India's assessment of militant activity. However, the exact operational history remains contested in the public record."
+        },
+        {
+          title: "WHY CAUTION MATTERS",
+          text:
+            "Because much of the alleged intelligence story comes from later accounts rather than a complete publicly available official operational file, this website does not present every detail as established fact."
+        },
+        {
+          title: "WHY IT MATTERS",
+          text:
+            "The episode had major consequences for India–Pakistan aviation and political relations in the tense period immediately preceding the 1971 war."
+        }
+      ]
+    },
+
+
+    "Kahuta": {
+      number: "CASE 03",
+      year: "1970s–80s",
+      title: "Kahuta",
+      status: "🔵 REPORTED ACCOUNT",
+
+      intro:
+        "Pakistan's nuclear programme became a major strategic intelligence concern for India.",
+
+        sections: [
+        {
+          title: "THE BACKGROUND",
+          text:
+            "Pakistan pursued a uranium-enrichment programme at Kahuta during the 1970s. The programme attracted intense international attention and became a major concern for India."
+        },
+        {
+          title: "INTELLIGENCE COLLECTION",
+          text:
+            "Former Indian intelligence officials have described efforts to obtain information about Pakistan's nuclear programme. Some later accounts include the famous story involving hair samples collected from a barber shop near Kahuta."
+        },
+        {
+          title: "THE EVIDENCE PROBLEM",
+          text:
+            "The hair-sample episode is widely repeated in intelligence literature, but the complete operational chain is not established by a publicly available primary Indian intelligence file. We therefore classify it as a reported account."
+        },
+        {
+          title: "THE MORARJI DESAI CONTROVERSY",
+          text:
+            "Later accounts also allege that Prime Minister Morarji Desai revealed to Pakistan's leadership that India knew about its nuclear programme. The dramatic claim that this directly destroyed an Indian intelligence network is not fully established by publicly available primary evidence."
+        }
+      ]
+    },
+
+
+    "Sikkim": {
+      number: "CASE 04",
+      year: "1975",
+      title: "Sikkim",
+      status: "🔵 FIRST-HAND ACCOUNT",
+
+      intro:
+        "Sikkim's transformation from a Himalayan kingdom to an Indian state involved politics, diplomacy, public mobilisation and security considerations.",
+
+      sections: [
+        {
+          title: "THE BACKGROUND",
+          text:
+            "Sikkim had a distinctive constitutional relationship with India after independence. Political tensions increased during the early 1970s."
+        },
+        {
+          title: "THE 1975 TURNING POINT",
+          text:
+            "In 1975, a referendum followed political upheaval in Sikkim, and the Indian Parliament subsequently approved constitutional changes resulting in Sikkim becoming a state of India."
+        },
+        {
+          title: "THE INTELLIGENCE DIMENSION",
+          text:
+            "Former R&AW officer G. B. S. Sidhu later published a first-hand account describing the political and intelligence environment surrounding these events."
+        },
+        {
+          title: "WHY IT MATTERS",
+          text:
+            "Sikkim demonstrates why intelligence history cannot be separated from diplomacy, local politics and regional geopolitics."
+        }
+      ]
+    },
+
+
+    "Sri Lanka": {
+      number: "CASE 05",
+      year: "1980s",
+      title: "Sri Lanka",
+      status: "🟡 COMPLEX / CONTESTED",
+
+      intro:
+        "Sri Lanka became one of the most complicated chapters in India's regional-security and intelligence history.",
+
+      sections: [
+        {
+          title: "THE BACKGROUND",
+          text:
+            "Ethnic conflict between Sri Lanka's Sinhalese-majority state and Tamil political and militant movements intensified during the late 1970s and 1980s."
+        },
+        {
+          title: "INDIA'S INVOLVEMENT",
+          text:
+            "India developed relationships with Tamil militant organisations during the period before its policy changed dramatically. The situation later evolved into direct Indian military involvement through the Indian Peace Keeping Force."
+        },
+        {
+          title: "THE COMPLICATION",
+          text:
+            "India's objectives changed over time, and relationships with militant groups became increasingly difficult. The Sri Lankan episode ultimately demonstrated how covert relationships can produce consequences that are difficult to control."
+        },
+        {
+          title: "WHY IT MATTERS",
+          text:
+            "This is an important case for understanding the limits and risks of intelligence activity in a complicated regional conflict."
+        }
+      ]
+    },
+
+
+    "Kargil": {
+      number: "CASE 06",
+      year: "1999",
+      title: "Kargil",
+      status: "🟢 OFFICIAL REVIEW",
+
+      intro:
+        "Kargil is one of the clearest examples of why intelligence collection alone is not enough.",
+
+      sections: [
+        {
+          title: "WHAT HAPPENED",
+          text:
+            "In 1999, Pakistani forces and irregulars occupied positions on the Indian side of the Line of Control in the Kargil sector."
+        },
+        {
+          title: "THE INTELLIGENCE PROBLEM",
+          text:
+            "The subsequent Kargil Review Committee examined weaknesses in intelligence collection, interpretation, surveillance and coordination between organisations."
+        },
+        {
+          title: "DURING THE WAR",
+          text:
+            "Publicly available intelligence literature also describes important technical intelligence obtained during the conflict that helped establish Pakistani military involvement."
+        },
+        {
+          title: "THE LESSON",
+          text:
+            "Kargil demonstrated that intelligence has to be collected, analysed, shared and acted upon effectively. Information that does not reach the right decision-maker at the right time can fail to prevent surprise."
+        }
+      ]
+    }
+
+  };
+
+
+  /* =========================
+     CASE FILE MODAL
+  ========================== */
+
+  function createCaseModal() {
+
+    if (document.getElementById("caseModal")) return;
+
+    const modal = document.createElement("div");
+
+    modal.id = "caseModal";
+    modal.className = "case-modal";
+
+    modal.innerHTML = `
+      <div class="case-modal-backdrop"></div>
+
+      <div class="case-modal-panel"
+           role="dialog"
+           aria-modal="true"
+           aria-labelledby="caseModalTitle">
+
+        <button
+          class="case-modal-close"
+          aria-label="Close case file"
+        >
+          ×
+        </button>
+
+        <div class="case-modal-header">
+
+          <span class="modal-case-number"></span>
+
+          <span class="modal-case-year"></span>
+
+          <h2 id="caseModalTitle"></h2>
+
+          <div class="modal-evidence"></div>
+
+        </div>
+
+        <div class="modal-intro"></div>
+
+        <div class="modal-sections"></div>
+
+        <div class="modal-footer">
+
+          <div class="modal-warning">
+            <strong>PUBLIC-SOURCE NOTE</strong>
+
+            <p>
+              This case file describes information available
+              in the public record. Classified operational
+              details may not be publicly verifiable.
+            </p>
+          </div>
+
+        </div>
+
+      </div>
+    `;
+
+    document.body.appendChild(modal);
+
+    const closeButton =
+      modal.querySelector(".case-modal-close");
+
+    const backdrop =
+      modal.querySelector(".case-modal-backdrop");
+
+    closeButton.addEventListener(
+      "click",
+      closeCaseModal
+    );
+
+    backdrop.addEventListener(
+      "click",
+      closeCaseModal
+    );
+
+    document.addEventListener("keydown", event => {
+
+      if (
+        event.key === "Escape" &&
+        modal.classList.contains("open")
+      ) {
+        closeCaseModal();
+      }
+
+    });
+
+  }
+
+
+  function openCaseModal(data) {
+
+    createCaseModal();
+
+    const modal =
+      document.getElementById("caseModal");
+
+    modal.querySelector(".modal-case-number")
+      .textContent = data.number;
+
+    modal.querySelector(".modal-case-year")
+      .textContent = data.year;
+
+    modal.querySelector("#caseModalTitle")
+      .textContent = data.title;
+
+    modal.querySelector(".modal-evidence")
+      .textContent = data.status;
+
+    modal.querySelector(".modal-intro")
+      .textContent = data.intro;
+
+    const sectionsContainer =
+      modal.querySelector(".modal-sections");
+
+    sectionsContainer.innerHTML = "";
+
+    data.sections.forEach(section => {
+
+      const article =
+        document.createElement("article");
+
+      article.className = "modal-section";
+
+      article.innerHTML = `
+        <h3>${section.title}</h3>
+        <p>${section.text}</p>
+      `;
+
+      sectionsContainer.appendChild(article);
+
+    });
+
+    modal.classList.add("open");
+
+    document.body.classList.add("modal-open");
+
+    modal.querySelector(".case-modal-close").focus();
+
+  }
+
+
+  function closeCaseModal() {
+
+    const modal =
+      document.getElementById("caseModal");
+
+    if (!modal) return;
+
+    modal.classList.remove("open");
+
+    document.body.classList.remove("modal-open");
+
+  }
+
+
+  /* =========================
+     CONNECT CASE BUTTONS
+  ========================== */
+
+  createCaseModal();
 
   const caseButtons =
     document.querySelectorAll(".case-button");
@@ -146,21 +528,25 @@ document.addEventListener("DOMContentLoaded", () => {
 
     button.addEventListener("click", () => {
 
-      const card = button.closest(".case-card");
+      const card =
+        button.closest(".case-card");
 
       if (!card) return;
 
-      card.classList.toggle("case-open");
+      const title =
+        card.querySelector("h3")?.textContent.trim();
 
-      if (card.classList.contains("case-open")) {
+      const data =
+        caseData[title];
 
-        button.textContent = "CASE SELECTED ✓";
-
-      } else {
-
-        button.textContent = "EXPLORE CASE →";
-
+      if (!data) {
+        console.warn(
+          `No case data found for: ${title}`
+        );
+        return;
       }
+
+      openCaseModal(data);
 
     });
 
@@ -209,7 +595,8 @@ document.addEventListener("DOMContentLoaded", () => {
      HERO PARALLAX
   ========================== */
 
-  const hero = document.querySelector(".hero");
+  const hero =
+    document.querySelector(".hero");
 
   window.addEventListener(
     "scroll",
@@ -233,7 +620,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
   /* =========================
-     YEAR / TIMELINE EFFECT
+     TIMELINE EFFECT
   ========================== */
 
   const timelineCards =
@@ -261,24 +648,3 @@ document.addEventListener("DOMContentLoaded", () => {
   );
 
 });
-
-/* =========================================================
-   JAVASCRIPT REVEAL ANIMATION
-========================================================= */
-
-.reveal {
-  opacity: 0;
-  transform: translateY(25px);
-  transition:
-    opacity 0.7s ease,
-    transform 0.7s ease;
-}
-
-.revealed {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-.nav-links a.active {
-  color: var(--accent);
-}
