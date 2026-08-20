@@ -1628,3 +1628,100 @@ body.modal-open {
   }
 
 }
+/* =========================================================
+   CASE DOSSIER — ARCHIVAL BACKGROUNDS
+========================================================= */
+
+.case-modal-panel {
+  position: relative;
+  overflow: hidden;
+
+  background-image:
+    linear-gradient(
+      rgba(7, 7, 7, 0.91),
+      rgba(7, 7, 7, 0.96)
+    ),
+    var(--case-bg);
+
+  background-size: cover;
+  background-position: center;
+}
+
+/* Keep dossier content above the background */
+
+.case-modal-panel > * {
+  position: relative;
+  z-index: 2;
+}
+
+/* Subtle archival texture */
+
+.case-modal-panel::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+
+  background:
+    repeating-linear-gradient(
+      0deg,
+      rgba(255,255,255,0.015) 0px,
+      rgba(255,255,255,0.015) 1px,
+      transparent 1px,
+      transparent 4px
+    );
+
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Smart-board / large display */
+
+@media (min-width: 1400px) {
+
+  .case-modal-panel {
+    width: min(1100px, 85vw);
+    max-height: 88vh;
+    padding: 55px;
+  }
+
+  .case-modal-header h2 {
+    font-size: 78px;
+  }
+
+  .modal-intro {
+    font-size: 22px;
+    max-width: 900px;
+  }
+
+  .modal-section p {
+    font-size: 17px;
+  }
+
+  .modal-section {
+    padding: 28px;
+  }
+
+  .case-modal-close {
+    width: 50px;
+    height: 50px;
+    font-size: 32px;
+  }
+}
+
+/* Very large classroom displays */
+
+@media (min-width: 1800px) {
+
+  .case-modal-panel {
+    width: min(1250px, 80vw);
+    padding: 65px;
+  }
+
+  .case-modal-header h2 {
+    font-size: 92px;
+  }
+
+  .modal-section p {
+    font-size: 19px;
+  }
+}
