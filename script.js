@@ -387,6 +387,9 @@ document.addEventListener("DOMContentLoaded", () => {
         </button>
 
         <div class="case-modal-header">
+        <div class="modal-case-image">
+  <img class="modal-case-image-element" src="" alt="">
+</div>
 
           <span class="modal-case-number"></span>
 
@@ -472,6 +475,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
     modal.querySelector(".modal-intro")
       .textContent = data.intro;
+     const modalImage =
+  modal.querySelector(".modal-case-image-element");
+
+if (modalImage && data.background) {
+  modalImage.src = data.background;
+  modalImage.alt = `${data.title} historical image`;
+}
 const modalPanel = modal.querySelector(".case-modal-panel");
 
 if (modalPanel && data.background) {
