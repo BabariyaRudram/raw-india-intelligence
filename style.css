@@ -1725,3 +1725,29 @@ body.modal-open {
     font-size: 19px;
   }
 }
+/* =========================================================
+   CASE DOSSIER SCROLL + SMART BOARD FIX
+========================================================= */
+
+.case-modal {
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.case-modal-panel {
+  max-height: 90vh;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior: contain;
+}
+
+@media (max-width: 600px) {
+  .case-modal {
+    align-items: flex-start;
+    padding: 10px;
+  }
+
+  .case-modal-panel {
+    max-height: calc(100vh - 20px);
+  }
+}
