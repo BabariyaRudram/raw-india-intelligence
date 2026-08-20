@@ -224,7 +224,7 @@ document.addEventListener("DOMContentLoaded", () => {
       number: "CASE 03",
       year: "1970s–80s",
       title: "Kahuta",
-       background: "images/kahuta.jpg",
+       background: "images/Kahuta.jpg",
       status: "🔵 REPORTED ACCOUNT",
 
       intro:
