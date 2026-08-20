@@ -155,6 +155,7 @@ document.addEventListener("DOMContentLoaded", () => {
       number: "CASE 01",
       year: "1971",
       title: "Bangladesh",
+       background: "images/bangladesh-1971.jpg",
       status: "🟢 DOCUMENTED / HISTORICAL RECORD",
 
       intro:
