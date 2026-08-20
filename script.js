@@ -472,7 +472,16 @@ document.addEventListener("DOMContentLoaded", () => {
 
     modal.querySelector(".modal-intro")
       .textContent = data.intro;
+const modalPanel = modal.querySelector(".case-modal-panel");
 
+if (modalPanel && data.background) {
+  modalPanel.style.backgroundImage =
+    `linear-gradient(rgba(0, 0, 0, 0.72), rgba(0, 0, 0, 0.82)), url("${data.background}")`;
+
+  modalPanel.style.backgroundSize = "cover";
+  modalPanel.style.backgroundPosition = "center";
+  modalPanel.style.backgroundRepeat = "no-repeat";
+}
     const sectionsContainer =
       modal.querySelector(".modal-sections");
 
