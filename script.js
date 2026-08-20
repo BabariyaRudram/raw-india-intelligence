@@ -1,3 +1,4 @@
+alert("R&AW JavaScript is working!");
 /* =========================================================
    R&AW — INTERACTION SCRIPT
    Public-source educational project
