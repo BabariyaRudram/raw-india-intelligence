@@ -787,43 +787,39 @@ document.addEventListener("DOMContentLoaded", () => {
      SHADOW FILE BUTTONS
   ======================================================= */
 
-  const shadowButtons =
-  document.querySelectorAll(
-    ".shadow-card button"
-  );
+  const evidenceData = {
 
-shadowButtons.forEach(button => {
+  "Balochistan": {
+    status: "🟡 CLAIMED / CONTESTED",
 
-  button.addEventListener(
-    "click",
-    () => {
+    intro:
+      "Public reporting contains allegations concerning Indian intelligence involvement in Balochistan. The available public record does not establish every operational claim as fact.",
 
-      const card =
-        button.closest(".shadow-card");
-
-      if (!card) return;
-
-      const title =
-        card.querySelector("h3")?.textContent.trim();
-
-      if (title === "Balochistan") {
-
-        button.textContent =
-          "EVIDENCE REVIEW →";
-
-        alert(
-          "BALOCHISTAN — EVIDENCE REVIEW\n\n" +
-          "This claim is disputed and should not be " +
-          "presented as established fact without reliable " +
-          "public evidence. Further evidence review is required."
-        );
-
+    sections: [
+      {
+        title: "WHAT IS CLAIMED",
+        text:
+          "Various reports and commentators have alleged Indian intelligence involvement with Baloch separatist movements."
+      },
+      {
+        title: "THE EVIDENCE PROBLEM",
+        text:
+          "Attribution of intelligence activity is difficult to independently verify when the underlying operational material is classified or unavailable in primary public records."
+      },
+      {
+        title: "WHAT CAN BE SAID RESPONSIBLY",
+        text:
+          "The allegations can be studied as part of the wider India–Pakistan security relationship, but disputed claims should not be presented as established operational facts."
+      },
+      {
+        title: "PUBLIC-SOURCE ASSESSMENT",
+        text:
+          "This project classifies the case as contested because publicly available evidence does not independently verify every allegation."
       }
+    ]
+  }
 
-    }
-  );
-
-});
+};
 
   /* =======================================================
      SOURCE BUTTONS
@@ -926,36 +922,3 @@ shadowButtons.forEach(button => {
   );
 
 });
-const evidenceData = {
-
-  "Balochistan": {
-    status: "🟡 CLAIMED / CONTESTED",
-
-    intro:
-      "Public reporting contains allegations concerning Indian intelligence involvement in Balochistan. The available public record does not establish every operational claim as fact.",
-
-    sections: [
-      {
-        title: "WHAT IS CLAIMED",
-        text:
-          "Various reports and commentators have alleged Indian intelligence involvement with Baloch separatist movements."
-      },
-      {
-        title: "THE EVIDENCE PROBLEM",
-        text:
-          "Attribution of intelligence activity is difficult to independently verify when the underlying operational material is classified or unavailable in primary public records."
-      },
-      {
-        title: "WHAT CAN BE SAID RESPONSIBLY",
-        text:
-          "The allegations can be studied as part of the wider India–Pakistan security relationship, but disputed claims should not be presented as established operational facts."
-      },
-      {
-        title: "PUBLIC-SOURCE ASSESSMENT",
-        text:
-          "This project classifies the case as contested because publicly available evidence does not independently verify every allegation."
-      }
-    ]
-  }
-
-};
