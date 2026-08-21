@@ -829,29 +829,6 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
 
-  /* =======================================================
-     SOURCE BUTTONS
-  ======================================================= */
-
-  const sourceButtons =
-    document.querySelectorAll(
-      ".source-card button"
-    );
-
-  sourceButtons.forEach(button => {
-
-    button.addEventListener(
-      "click",
-      () => {
-
-        button.textContent =
-          "SOURCE VAULT COMING →";
-
-      }
-    );
-
-  });
-
 
   /* =======================================================
      HERO PARALLAX
