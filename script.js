@@ -1,4 +1,4 @@
-
+console.log("R&AW SCRIPT LOADED");
 /* =========================================================
    R&AW — INTERACTION SCRIPT
    Public-source educational project
