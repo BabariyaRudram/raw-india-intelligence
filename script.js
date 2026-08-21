@@ -46,37 +46,38 @@ document.addEventListener("DOMContentLoaded", () => {
     },
 
     "The Ganga": {
-      number: "CASE 02",
-      year: "1971",
-      title: "The Ganga",
-      status: "🔵 REPORTED / CONTESTED",
+  number: "CASE 02",
+  year: "1971",
+  title: "The Ganga",
+  background: "images/ganga-1971.png",
+  status: "🔵 REPORTED / CONTESTED",
 
-      intro:
-        "The hijacking of an Indian Airlines aircraft became an important episode in India–Pakistan relations.",
+  intro:
+    "The hijacking of an Indian Airlines aircraft became an important episode in India–Pakistan relations.",
 
-      sections: [
-        {
-          title: "WHAT HAPPENED",
-          text:
-            "Indian Airlines flight Ganga was hijacked on 30 January 1971 and taken to Lahore, Pakistan. The aircraft was eventually destroyed there."
-        },
-        {
-          title: "THE INTELLIGENCE STORY",
-          text:
-            "Later accounts by former intelligence officials have described the episode as connected to an intelligence operation and to India's assessment of militant activity. However, the exact operational history remains contested in the public record."
-        },
-        {
-          title: "WHY CAUTION MATTERS",
-          text:
-            "Because much of the alleged intelligence story comes from later accounts rather than a complete publicly available official operational file, this website does not present every detail as established fact."
-        },
-        {
-          title: "WHY IT MATTERS",
-          text:
-            "The episode had major consequences for India–Pakistan aviation and political relations in the tense period immediately preceding the 1971 war."
-        }
-      ]
+  sections: [
+    {
+      title: "WHAT HAPPENED",
+      text:
+        "Indian Airlines flight Ganga was hijacked on 30 January 1971 and taken to Lahore, Pakistan. The aircraft was eventually destroyed there."
     },
+    {
+      title: "THE INTELLIGENCE STORY",
+      text:
+        "Later accounts by former intelligence officials have described the episode as connected to an intelligence operation and to India's assessment of militant activity. However, the exact operational history remains contested in the public record."
+    },
+    {
+      title: "WHY CAUTION MATTERS",
+      text:
+        "Because much of the alleged intelligence story comes from later accounts rather than a complete publicly available official operational file, this website does not present every detail as established fact."
+    },
+    {
+      title: "WHY IT MATTERS",
+      text:
+        "The episode had major consequences for India–Pakistan aviation and political relations in the tense period immediately preceding the 1971 war."
+    }
+  ]
+},
 
     "Kahuta": {
       number: "CASE 03",
