@@ -185,7 +185,7 @@ document.addEventListener("DOMContentLoaded", () => {
       number: "CASE 06",
       year: "1999",
       title: "Kargil",
-      background: "images/kargil.jpg",
+      background: "images/kargil-1999.jpg",
       status: "🟢 OFFICIAL REVIEW",
 
       intro:
