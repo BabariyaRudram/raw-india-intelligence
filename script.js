@@ -1,161 +1,21 @@
-console.log("R&AW SCRIPT LOADED");
 /* =========================================================
-   R&AW — INTERACTION SCRIPT
-   Public-source educational project
+   R&AW — COMPLETE INTERACTION SCRIPT
+   Educational project • Public-source research
 ========================================================= */
 
 document.addEventListener("DOMContentLoaded", () => {
 
-  /* =========================
-     MOBILE NAVIGATION
-  ========================== */
+  /* =======================================================
+     CASE DATA
+  ======================================================= */
 
-  const menuToggle = document.getElementById("menuToggle");
-  const navLinks = document.getElementById("navLinks");
-
-  if (menuToggle && navLinks) {
-
-    menuToggle.addEventListener("click", () => {
-
-      const isOpen = navLinks.classList.toggle("active");
-
-      menuToggle.setAttribute(
-        "aria-expanded",
-        isOpen ? "true" : "false"
-      );
-
-      menuToggle.textContent = isOpen ? "×" : "☰";
-    });
-
-    navLinks.querySelectorAll("a").forEach(link => {
-
-      link.addEventListener("click", () => {
-
-        navLinks.classList.remove("active");
-
-        menuToggle.setAttribute(
-          "aria-expanded",
-          "false"
-        );
-
-        menuToggle.textContent = "☰";
-      });
-
-    });
-
-  }
-
-
-  /* =========================
-     SCROLL REVEAL
-  ========================== */
-
-  const revealElements = document.querySelectorAll(
-    ".timeline-card, .case-card, .person-card, .shadow-card, .source-card, .flow-step"
-  );
-
-  if ("IntersectionObserver" in window) {
-
-    const revealObserver = new IntersectionObserver(
-      (entries, observer) => {
-
-        entries.forEach(entry => {
-
-          if (entry.isIntersecting) {
-
-            entry.target.classList.add("revealed");
-
-            observer.unobserve(entry.target);
-
-          }
-
-        });
-
-      },
-      {
-        threshold: 0.12
-      }
-    );
-
-    revealElements.forEach(element => {
-
-      element.classList.add("reveal");
-
-      revealObserver.observe(element);
-
-    });
-
-  } else {
-
-    revealElements.forEach(element => {
-      element.classList.add("revealed");
-    });
-
-  }
-
-
-  /* =========================
-     ACTIVE NAVIGATION
-  ========================== */
-
-  const sections = document.querySelectorAll(
-    "section[id]"
-  );
-
-  const navItems = document.querySelectorAll(
-    ".nav-links a"
-  );
-
-  if ("IntersectionObserver" in window) {
-
-    const sectionObserver = new IntersectionObserver(
-      entries => {
-
-        entries.forEach(entry => {
-
-          if (entry.isIntersecting) {
-
-            navItems.forEach(link => {
-              link.classList.remove("active");
-            });
-
-            const activeLink =
-              document.querySelector(
-                `.nav-links a[href="#${entry.target.id}"]`
-              );
-
-            if (activeLink) {
-              activeLink.classList.add("active");
-            }
-
-          }
-
-        });
-
-      },
-      {
-        rootMargin: "-35% 0px -55% 0px"
-      }
-    );
-
-    sections.forEach(section => {
-      sectionObserver.observe(section);
-    });
-
-  }
-
-
-  /* =========================
-     CASE FILE DATA
-  ========================== */
-alert("CASE DATA SCRIPT STARTED");
   const caseData = {
 
     "Bangladesh": {
       number: "CASE 01",
       year: "1971",
       title: "Bangladesh",
-       background: "images/bangladesh-1971.jpg",
+      background: "images/bangladesh-1971.jpg",
       status: "🟢 DOCUMENTED / HISTORICAL RECORD",
 
       intro:
@@ -184,7 +44,6 @@ alert("CASE DATA SCRIPT STARTED");
         }
       ]
     },
-
 
     "The Ganga": {
       number: "CASE 02",
@@ -219,18 +78,17 @@ alert("CASE DATA SCRIPT STARTED");
       ]
     },
 
-
     "Kahuta": {
       number: "CASE 03",
       year: "1970s–80s",
       title: "Kahuta",
-       background: "images/Kahuta.jpg",
+      background: "images/Kahuta.jpg",
       status: "🔵 REPORTED ACCOUNT",
 
       intro:
         "Pakistan's nuclear programme became a major strategic intelligence concern for India.",
 
-        sections: [
+      sections: [
         {
           title: "THE BACKGROUND",
           text:
@@ -254,12 +112,11 @@ alert("CASE DATA SCRIPT STARTED");
       ]
     },
 
-
     "Sikkim": {
       number: "CASE 04",
       year: "1975",
       title: "Sikkim",
-       background: "images/sikkim-flag.png,
+      background: "images/sikkim-flag.png",
       status: "🔵 FIRST-HAND ACCOUNT",
 
       intro:
@@ -288,7 +145,6 @@ alert("CASE DATA SCRIPT STARTED");
         }
       ]
     },
-
 
     "Sri Lanka": {
       number: "CASE 05",
@@ -323,11 +179,11 @@ alert("CASE DATA SCRIPT STARTED");
       ]
     },
 
-
     "Kargil": {
       number: "CASE 06",
       year: "1999",
       title: "Kargil",
+      background: "images/kargil.jpg",
       status: "🟢 OFFICIAL REVIEW",
 
       intro:
@@ -360,38 +216,87 @@ alert("CASE DATA SCRIPT STARTED");
   };
 
 
-  /* =========================
-     CASE FILE MODAL
-  ========================== */
+  /* =======================================================
+     MOBILE NAVIGATION
+  ======================================================= */
+
+  const menuToggle = document.getElementById("menuToggle");
+  const navLinks = document.getElementById("navLinks");
+
+  if (menuToggle && navLinks) {
+
+    menuToggle.addEventListener("click", () => {
+
+      const isOpen =
+        navLinks.classList.toggle("active");
+
+      menuToggle.setAttribute(
+        "aria-expanded",
+        isOpen ? "true" : "false"
+      );
+
+      menuToggle.textContent =
+        isOpen ? "×" : "☰";
+
+    });
+
+
+    navLinks.querySelectorAll("a").forEach(link => {
+
+      link.addEventListener("click", () => {
+
+        navLinks.classList.remove("active");
+
+        menuToggle.setAttribute(
+          "aria-expanded",
+          "false"
+        );
+
+        menuToggle.textContent = "☰";
+
+      });
+
+    });
+
+  }
+
+
+  /* =======================================================
+     CREATE CASE MODAL
+  ======================================================= */
 
   function createCaseModal() {
 
-    if (document.getElementById("caseModal")) return;
+    if (document.getElementById("caseModal")) {
+      return;
+    }
 
-    const modal = document.createElement("div");
+    const modal =
+      document.createElement("div");
 
     modal.id = "caseModal";
     modal.className = "case-modal";
 
     modal.innerHTML = `
+
       <div class="case-modal-backdrop"></div>
 
-      <div class="case-modal-panel"
-           role="dialog"
-           aria-modal="true"
-           aria-labelledby="caseModalTitle">
+      <div
+        class="case-modal-panel"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="caseModalTitle"
+      >
 
         <button
           class="case-modal-close"
           aria-label="Close case file"
+          type="button"
         >
           ×
         </button>
 
         <div class="case-modal-header">
-        <div class="modal-case-image">
-  <img class="modal-case-image-element" src="" alt="">
-</div>
 
           <span class="modal-case-number"></span>
 
@@ -410,6 +315,7 @@ alert("CASE DATA SCRIPT STARTED");
         <div class="modal-footer">
 
           <div class="modal-warning">
+
             <strong>PUBLIC-SOURCE NOTE</strong>
 
             <p>
@@ -417,6 +323,7 @@ alert("CASE DATA SCRIPT STARTED");
               in the public record. Classified operational
               details may not be publicly verifiable.
             </p>
+
           </div>
 
         </div>
@@ -432,104 +339,208 @@ alert("CASE DATA SCRIPT STARTED");
     const backdrop =
       modal.querySelector(".case-modal-backdrop");
 
-    closeButton.addEventListener(
-      "click",
-      closeCaseModal
-    );
+    if (closeButton) {
 
-    backdrop.addEventListener(
-      "click",
-      closeCaseModal
-    );
+      closeButton.addEventListener(
+        "click",
+        closeCaseModal
+      );
 
-    document.addEventListener("keydown", event => {
+    }
 
-      if (
-        event.key === "Escape" &&
-        modal.classList.contains("open")
-      ) {
-        closeCaseModal();
-      }
+    if (backdrop) {
 
-    });
+      backdrop.addEventListener(
+        "click",
+        closeCaseModal
+      );
+
+    }
 
   }
 
 
+  /* =======================================================
+     OPEN CASE MODAL
+  ======================================================= */
+
   function openCaseModal(data) {
+
+    if (!data) {
+      return;
+    }
 
     createCaseModal();
 
     const modal =
       document.getElementById("caseModal");
 
-    modal.querySelector(".modal-case-number")
-      .textContent = data.number;
+    if (!modal) {
+      return;
+    }
 
-    modal.querySelector(".modal-case-year")
-      .textContent = data.year;
 
-    modal.querySelector("#caseModalTitle")
-      .textContent = data.title;
+    const numberElement =
+      modal.querySelector(".modal-case-number");
 
-    modal.querySelector(".modal-evidence")
-      .textContent = data.status;
+    const yearElement =
+      modal.querySelector(".modal-case-year");
 
-    modal.querySelector(".modal-intro")
-      .textContent = data.intro;
-     const modalImage =
-  modal.querySelector(".modal-case-image-element");
+    const titleElement =
+      modal.querySelector("#caseModalTitle");
 
-if (modalImage && data.background) {
-  modalImage.src = data.background;
-  modalImage.alt = `${data.title} historical image`;
-}
-const modalPanel = modal.querySelector(".case-modal-panel");
+    const evidenceElement =
+      modal.querySelector(".modal-evidence");
 
-if (modalPanel && data.background) {
-  modalPanel.style.backgroundImage =
-    `linear-gradient(rgba(0, 0, 0, 0.72), rgba(0, 0, 0, 0.82)), url("${data.background}")`;
+    const introElement =
+      modal.querySelector(".modal-intro");
 
-  modalPanel.style.backgroundSize = "cover";
-  modalPanel.style.backgroundPosition = "center";
-  modalPanel.style.backgroundRepeat = "no-repeat";
-}
     const sectionsContainer =
       modal.querySelector(".modal-sections");
 
-    sectionsContainer.innerHTML = "";
 
-    data.sections.forEach(section => {
+    if (numberElement) {
+      numberElement.textContent =
+        data.number || "";
+    }
 
-      const article =
-        document.createElement("article");
+    if (yearElement) {
+      yearElement.textContent =
+        data.year || "";
+    }
 
-      article.className = "modal-section";
+    if (titleElement) {
+      titleElement.textContent =
+        data.title || "";
+    }
 
-      article.innerHTML = `
-        <h3>${section.title}</h3>
-        <p>${section.text}</p>
-      `;
+    if (evidenceElement) {
+      evidenceElement.textContent =
+        data.status || "";
+    }
 
-      sectionsContainer.appendChild(article);
+    if (introElement) {
+      introElement.textContent =
+        data.intro || "";
+    }
 
-    });
+
+    /* -------------------------------------------------------
+       CASE IMAGE
+    ------------------------------------------------------- */
+
+    const modalPanel =
+      modal.querySelector(".case-modal-panel");
+
+    if (
+      modalPanel &&
+      data.background
+    ) {
+
+      modalPanel.style.backgroundImage =
+        `linear-gradient(
+          rgba(0, 0, 0, 0.72),
+          rgba(0, 0, 0, 0.84)
+        ), url("${data.background}")`;
+
+      modalPanel.style.backgroundSize =
+        "cover";
+
+      modalPanel.style.backgroundPosition =
+        "center";
+
+      modalPanel.style.backgroundRepeat =
+        "no-repeat";
+
+    }
+
+
+    /* -------------------------------------------------------
+       CASE SECTIONS
+    ------------------------------------------------------- */
+
+    if (sectionsContainer) {
+
+      sectionsContainer.innerHTML = "";
+
+      if (
+        Array.isArray(data.sections)
+      ) {
+
+        data.sections.forEach(section => {
+
+          const article =
+            document.createElement("article");
+
+          article.className =
+            "modal-section";
+
+          const heading =
+            document.createElement("h3");
+
+          heading.textContent =
+            section.title || "";
+
+          const paragraph =
+            document.createElement("p");
+
+          paragraph.textContent =
+            section.text || "";
+
+          article.appendChild(heading);
+
+          article.appendChild(paragraph);
+
+          sectionsContainer.appendChild(article);
+
+        });
+
+      }
+
+    }
+
+
+    /* -------------------------------------------------------
+       SHOW MODAL
+    ------------------------------------------------------- */
 
     modal.classList.add("open");
 
     document.body.classList.add("modal-open");
 
-    modal.querySelector(".case-modal-close").focus();
+    const panel =
+      modal.querySelector(".case-modal-panel");
+
+    if (panel) {
+      panel.scrollTop = 0;
+    }
+
+    const closeButton =
+      modal.querySelector(".case-modal-close");
+
+    if (closeButton) {
+
+      setTimeout(() => {
+        closeButton.focus();
+      }, 100);
+
+    }
 
   }
 
+
+  /* =======================================================
+     CLOSE CASE MODAL
+  ======================================================= */
 
   function closeCaseModal() {
 
     const modal =
       document.getElementById("caseModal");
 
-    if (!modal) return;
+    if (!modal) {
+      return;
+    }
 
     modal.classList.remove("open");
 
@@ -538,36 +549,57 @@ if (modalPanel && data.background) {
   }
 
 
-  /* =========================
-     CONNECT CASE BUTTONS
-  ========================== */
-
-  createCaseModal();
+  /* =======================================================
+     CASE BUTTONS
+  ======================================================= */
 
   const caseButtons =
     document.querySelectorAll(".case-button");
 
   caseButtons.forEach(button => {
 
-    button.addEventListener("click", () => {
+    button.addEventListener("click", event => {
+
+      event.preventDefault();
+
+      event.stopPropagation();
+
 
       const card =
         button.closest(".case-card");
 
-      if (!card) return;
+      if (!card) {
+        return;
+      }
+
+
+      const titleElement =
+        card.querySelector("h3");
+
+      if (!titleElement) {
+        return;
+      }
+
 
       const title =
-        card.querySelector("h3")?.textContent.trim();
+        titleElement.textContent.trim();
+
 
       const data =
         caseData[title];
 
+
       if (!data) {
+
         console.warn(
-          `No case data found for: ${title}`
+          "No case data found for:",
+          title
         );
+
         return;
+
       }
+
 
       openCaseModal(data);
 
@@ -576,90 +608,311 @@ if (modalPanel && data.background) {
   });
 
 
-  /* =========================
+  /* =======================================================
+     ESCAPE KEY
+  ======================================================= */
+
+  document.addEventListener(
+    "keydown",
+    event => {
+
+      if (
+        event.key === "Escape"
+      ) {
+
+        const modal =
+          document.getElementById("caseModal");
+
+        if (
+          modal &&
+          modal.classList.contains("open")
+        ) {
+
+          closeCaseModal();
+
+        }
+
+      }
+
+    }
+  );
+
+
+  /* =======================================================
+     SCROLL REVEAL
+  ======================================================= */
+
+  const revealElements =
+    document.querySelectorAll(
+      ".timeline-card, .case-card, .person-card, .shadow-card, .source-card, .flow-step"
+    );
+
+
+  if (
+    "IntersectionObserver" in window
+  ) {
+
+    const revealObserver =
+      new IntersectionObserver(
+        (entries, observer) => {
+
+          entries.forEach(entry => {
+
+            if (
+              entry.isIntersecting
+            ) {
+
+              entry.target.classList.add(
+                "revealed"
+              );
+
+              observer.unobserve(
+                entry.target
+              );
+
+            }
+
+          });
+
+        },
+        {
+          threshold: 0.12
+        }
+      );
+
+
+    revealElements.forEach(element => {
+
+      element.classList.add(
+        "reveal"
+      );
+
+      revealObserver.observe(
+        element
+      );
+
+    });
+
+  } else {
+
+    revealElements.forEach(element => {
+
+      element.classList.add(
+        "revealed"
+      );
+
+    });
+
+  }
+
+
+  /* =======================================================
+     ACTIVE NAVIGATION
+  ======================================================= */
+
+  const sections =
+    document.querySelectorAll(
+      "section[id]"
+    );
+
+  const navItems =
+    document.querySelectorAll(
+      ".nav-links a"
+    );
+
+
+  if (
+    "IntersectionObserver" in window
+  ) {
+
+    const sectionObserver =
+      new IntersectionObserver(
+        entries => {
+
+          entries.forEach(entry => {
+
+            if (
+              entry.isIntersecting
+            ) {
+
+              navItems.forEach(link => {
+
+                link.classList.remove(
+                  "active"
+                );
+
+              });
+
+
+              const activeLink =
+                document.querySelector(
+                  `.nav-links a[href="#${entry.target.id}"]`
+                );
+
+
+              if (activeLink) {
+
+                activeLink.classList.add(
+                  "active"
+                );
+
+              }
+
+            }
+
+          });
+
+        },
+        {
+          rootMargin:
+            "-35% 0px -55% 0px"
+        }
+      );
+
+
+    sections.forEach(section => {
+
+      sectionObserver.observe(
+        section
+      );
+
+    });
+
+  }
+
+
+  /* =======================================================
      SHADOW FILE BUTTONS
-  ========================== */
+  ======================================================= */
 
   const shadowButtons =
-    document.querySelectorAll(".shadow-card button");
+    document.querySelectorAll(
+      ".shadow-card button"
+    );
 
   shadowButtons.forEach(button => {
 
-    button.addEventListener("click", () => {
+    button.addEventListener(
+      "click",
+      () => {
 
-      button.textContent =
-        "EVIDENCE REVIEW COMING →";
+        button.textContent =
+          "EVIDENCE REVIEW COMING →";
 
-    });
+      }
+    );
 
   });
 
 
-  /* =========================
+  /* =======================================================
      SOURCE BUTTONS
-  ========================== */
+  ======================================================= */
 
   const sourceButtons =
-    document.querySelectorAll(".source-card button");
+    document.querySelectorAll(
+      ".source-card button"
+    );
 
   sourceButtons.forEach(button => {
 
-    button.addEventListener("click", () => {
+    button.addEventListener(
+      "click",
+      () => {
 
-      button.textContent =
-        "SOURCE VAULT COMING →";
+        button.textContent =
+          "SOURCE VAULT COMING →";
 
-    });
+      }
+    );
 
   });
 
 
-  /* =========================
+  /* =======================================================
+     SOURCE BUTTONS
+  ======================================================= */
+
+  const sourceButtons =
+    document.querySelectorAll(
+      ".source-card button"
+    );
+
+  sourceButtons.forEach(button => {
+
+    button.addEventListener(
+      "click",
+      () => {
+
+        button.textContent =
+          "SOURCE VAULT COMING →";
+
+      }
+    );
+
+  });
+
+
+  /* =======================================================
      HERO PARALLAX
-  ========================== */
+  ======================================================= */
 
   const hero =
     document.querySelector(".hero");
 
-  window.addEventListener(
-    "scroll",
-    () => {
 
-      if (!hero) return;
+  if (hero) {
 
-      const scrollPosition =
-        window.scrollY;
+    window.addEventListener(
+      "scroll",
+      () => {
 
-      if (scrollPosition < window.innerHeight) {
+        const scrollPosition =
+          window.scrollY;
 
-        hero.style.backgroundPosition =
-          `center ${scrollPosition * 0.15}px`;
 
+        if (
+          scrollPosition <
+          window.innerHeight
+        ) {
+
+          hero.style.backgroundPosition =
+            `center ${scrollPosition * 0.15}px`;
+
+        }
+
+      },
+      {
+        passive: true
       }
+    );
 
-    },
-    { passive: true }
+  }
+
+
+  /* =======================================================
+     TIMELINE EFFECT
+  ======================================================= */
+
+  const timelineCards =
+    document.querySelectorAll(
+      ".timeline-card"
+    );
+
+
+  timelineCards.forEach(
+    (card, index) => {
+
+      card.style.transitionDelay =
+        `${index * 70}ms`;
+
+    }
   );
 
 
-  /* =========================
-     TIMELINE EFFECT
-  ========================== */
-
-  const timelineCards =
-    document.querySelectorAll(".timeline-card");
-
-  timelineCards.forEach((card, index) => {
-
-    card.style.transitionDelay =
-      `${index * 70}ms`;
-
-  });
-
-
-  /* =========================
-     CONSOLE SIGNATURE
-  ========================== */
+  /* =======================================================
+     FINAL INITIALIZATION
+  ======================================================= */
 
   console.log(
     "%cR&AW — THE SHADOW BEHIND THE INFORMATION",
@@ -668,6 +921,11 @@ if (modalPanel && data.background) {
 
   console.log(
     "Educational project • Public-source research"
+  );
+
+  console.log(
+    "Case files loaded:",
+    Object.keys(caseData).length
   );
 
 });
