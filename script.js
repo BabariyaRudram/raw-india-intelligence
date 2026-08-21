@@ -259,7 +259,7 @@ document.addEventListener("DOMContentLoaded", () => {
       number: "CASE 04",
       year: "1975",
       title: "Sikkim",
-       background: "images/sikkim-flag.svg",
+       background: "images/sikkim-flag.png,
       status: "🔵 FIRST-HAND ACCOUNT",
 
       intro:
