@@ -788,24 +788,42 @@ document.addEventListener("DOMContentLoaded", () => {
   ======================================================= */
 
   const shadowButtons =
-    document.querySelectorAll(
-      ".shadow-card button"
-    );
+  document.querySelectorAll(
+    ".shadow-card button"
+  );
 
-  shadowButtons.forEach(button => {
+shadowButtons.forEach(button => {
 
-    button.addEventListener(
-      "click",
-      () => {
+  button.addEventListener(
+    "click",
+    () => {
+
+      const card =
+        button.closest(".shadow-card");
+
+      if (!card) return;
+
+      const title =
+        card.querySelector("h3")?.textContent.trim();
+
+      if (title === "Balochistan") {
 
         button.textContent =
-          "EVIDENCE REVIEW COMING →";
+          "EVIDENCE REVIEW →";
+
+        alert(
+          "BALOCHISTAN — EVIDENCE REVIEW\n\n" +
+          "This claim is disputed and should not be " +
+          "presented as established fact without reliable " +
+          "public evidence. Further evidence review is required."
+        );
 
       }
-    );
 
-  });
+    }
+  );
 
+});
 
   /* =======================================================
      SOURCE BUTTONS
