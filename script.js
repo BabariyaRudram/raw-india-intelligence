@@ -148,7 +148,7 @@ document.addEventListener("DOMContentLoaded", () => {
   /* =========================
      CASE FILE DATA
   ========================== */
-
+alert("CASE DATA SCRIPT STARTED");
   const caseData = {
 
     "Bangladesh": {
