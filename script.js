@@ -787,7 +787,11 @@ document.addEventListener("DOMContentLoaded", () => {
      SHADOW FILE BUTTONS
   ======================================================= */
 
-  const evidenceData = {
+  /* =======================================================
+   EVIDENCE REVIEW MODAL
+======================================================= */
+
+const evidenceData = {
 
   "Balochistan": {
     status: "🟡 CLAIMED / CONTESTED",
@@ -817,10 +821,444 @@ document.addEventListener("DOMContentLoaded", () => {
           "This project classifies the case as contested because publicly available evidence does not independently verify every allegation."
       }
     ]
+  },
+
+
+  "Unknown Gunmen": {
+    status: "🟡 CLAIMED / UNVERIFIED",
+
+    intro:
+      "Reports concerning unidentified gunmen and alleged intelligence-linked activity require careful examination because attribution is often disputed.",
+
+    sections: [
+      {
+        title: "THE CLAIM",
+        text:
+          "Public reporting has attributed certain incidents involving unidentified gunmen to various actors, sometimes including alleged intelligence connections."
+      },
+      {
+        title: "THE ATTRIBUTION PROBLEM",
+        text:
+          "Identifying the individuals or organisation responsible can be difficult when investigations are incomplete or the available evidence is indirect."
+      },
+      {
+        title: "WHY CAUTION MATTERS",
+        text:
+          "Unverified attribution should not be treated as established fact. Reliable evidence, independent reporting and primary documentation are important when assessing such claims."
+      },
+      {
+        title: "PUBLIC-SOURCE ASSESSMENT",
+        text:
+          "This project therefore treats the case as an allegation requiring further evidence rather than as a confirmed intelligence operation."
+      }
+    ]
   }
 
 };
 
+
+/* =======================================================
+   CREATE EVIDENCE MODAL
+======================================================= */
+
+function createEvidenceModal() {
+
+  if (
+    document.getElementById(
+      "evidenceModal"
+    )
+  ) {
+    return;
+  }
+
+  const modal =
+    document.createElement("div");
+
+  modal.id =
+    "evidenceModal";
+
+  modal.className =
+    "case-modal";
+
+  modal.innerHTML = `
+
+    <div class="case-modal-backdrop"></div>
+
+    <div
+      class="case-modal-panel"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="evidenceModalTitle"
+    >
+
+      <button
+        class="case-modal-close"
+        type="button"
+        aria-label="Close evidence review"
+      >
+        ×
+      </button>
+
+      <div class="case-modal-header">
+
+        <span class="modal-case-number">
+          CLAIM FILE
+        </span>
+
+        <span class="modal-case-year">
+          EVIDENCE REVIEW
+        </span>
+
+        <h2 id="evidenceModalTitle"></h2>
+
+        <div class="modal-evidence"></div>
+
+      </div>
+
+      <div class="modal-intro"></div>
+
+      <div class="modal-sections"></div>
+
+      <div class="modal-footer">
+
+        <div class="modal-warning">
+
+          <strong>PUBLIC-SOURCE NOTE</strong>
+
+          <p>
+            This review describes information available
+            in public reporting and research. Classified
+            operational details may not be publicly verifiable.
+          </p>
+
+        </div>
+
+      </div>
+
+    </div>
+  `;
+
+  document.body.appendChild(modal);
+
+  const closeButton =
+    modal.querySelector(
+      ".case-modal-close"
+    );
+
+  const backdrop =
+    modal.querySelector(
+      ".case-modal-backdrop"
+    );
+
+  if (closeButton) {
+
+    closeButton.addEventListener(
+      "click",
+      closeEvidenceModal
+    );
+
+  }
+
+  if (backdrop) {
+
+    backdrop.addEventListener(
+      "click",
+      closeEvidenceModal
+    );
+
+  }
+
+}
+
+
+/* =======================================================
+   OPEN EVIDENCE MODAL
+======================================================= */
+
+function openEvidenceModal(
+  title,
+  data
+) {
+
+  createEvidenceModal();
+
+  const modal =
+    document.getElementById(
+      "evidenceModal"
+    );
+
+  if (!modal || !data) {
+    return;
+  }
+
+
+  const titleElement =
+    modal.querySelector(
+      "#evidenceModalTitle"
+    );
+
+  const evidenceElement =
+    modal.querySelector(
+      ".modal-evidence"
+    );
+
+  const introElement =
+    modal.querySelector(
+      ".modal-intro"
+    );
+
+  const sectionsContainer =
+    modal.querySelector(
+      ".modal-sections"
+    );
+
+
+  if (titleElement) {
+
+    titleElement.textContent =
+      title;
+
+  }
+
+
+  if (evidenceElement) {
+
+    evidenceElement.textContent =
+      data.status || "";
+
+  }
+
+
+  if (introElement) {
+
+    introElement.textContent =
+      data.intro || "";
+
+  }
+
+
+  if (sectionsContainer) {
+
+    sectionsContainer.innerHTML =
+      "";
+
+    data.sections.forEach(
+      section => {
+
+        const article =
+          document.createElement(
+            "article"
+          );
+
+        article.className =
+          "modal-section";
+
+
+        const heading =
+          document.createElement(
+            "h3"
+          );
+
+        heading.textContent =
+          section.title;
+
+
+        const paragraph =
+          document.createElement(
+            "p"
+          );
+
+        paragraph.textContent =
+          section.text;
+
+
+        article.appendChild(
+          heading
+        );
+
+        article.appendChild(
+          paragraph
+        );
+
+        sectionsContainer.appendChild(
+          article
+        );
+
+      }
+    );
+
+  }
+
+
+  modal.classList.add(
+    "open"
+  );
+
+  document.body.classList.add(
+    "modal-open"
+  );
+
+
+  const panel =
+    modal.querySelector(
+      ".case-modal-panel"
+    );
+
+  if (panel) {
+
+    panel.scrollTop =
+      0;
+
+  }
+
+
+  const closeButton =
+    modal.querySelector(
+      ".case-modal-close"
+    );
+
+  if (closeButton) {
+
+    setTimeout(
+      () => closeButton.focus(),
+      100
+    );
+
+  }
+
+}
+
+
+/* =======================================================
+   CLOSE EVIDENCE MODAL
+======================================================= */
+
+function closeEvidenceModal() {
+
+  const modal =
+    document.getElementById(
+      "evidenceModal"
+    );
+
+  if (!modal) {
+    return;
+  }
+
+  modal.classList.remove(
+    "open"
+  );
+
+  document.body.classList.remove(
+    "modal-open"
+  );
+
+}
+
+
+/* =======================================================
+   EVIDENCE REVIEW BUTTONS
+======================================================= */
+
+const evidenceButtons =
+  document.querySelectorAll(
+    ".evidence-button"
+  );
+
+evidenceButtons.forEach(
+  button => {
+
+    button.addEventListener(
+      "click",
+      event => {
+
+        event.preventDefault();
+
+        event.stopPropagation();
+
+
+        const card =
+          button.closest(
+            ".shadow-card"
+          );
+
+        if (!card) {
+          return;
+        }
+
+
+        const titleElement =
+          card.querySelector(
+            "h3"
+          );
+
+        if (!titleElement) {
+          return;
+        }
+
+
+        const title =
+          titleElement.textContent.trim();
+
+
+        const data =
+          evidenceData[title];
+
+
+        if (!data) {
+
+          console.warn(
+            "No evidence data found for:",
+            title
+          );
+
+          return;
+
+        }
+
+
+        openEvidenceModal(
+          title,
+          data
+        );
+
+      }
+    );
+
+  });
+
+
+/* =======================================================
+   EVIDENCE MODAL — ESCAPE KEY
+======================================================= */
+
+document.addEventListener(
+  "keydown",
+  event => {
+
+    if (
+      event.key === "Escape"
+    ) {
+
+      const modal =
+        document.getElementById(
+          "evidenceModal"
+        );
+
+      if (
+        modal &&
+        modal.classList.contains(
+          "open"
+        )
+      ) {
+
+        closeEvidenceModal();
+
+      }
+
+    }
+
+  }
+);
   /* =======================================================
      SOURCE BUTTONS
   ======================================================= */
