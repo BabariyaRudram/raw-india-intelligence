@@ -151,6 +151,7 @@ document.addEventListener("DOMContentLoaded", () => {
       number: "CASE 05",
       year: "1980s",
       title: "Sri Lanka",
+       background: "images/ipkf-deployment.jpg",
       status: "🟡 COMPLEX / CONTESTED",
 
       intro:
