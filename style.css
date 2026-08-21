@@ -1674,31 +1674,42 @@ body.modal-open {
   z-index: 1;
 }
 
-/* Smart-board / large display */
+/* =========================================================
+   SMART BOARD / LARGE DISPLAY
+========================================================= */
 
 @media (min-width: 1400px) {
 
   .case-modal-panel {
     width: min(1100px, 85vw);
     max-height: 88vh;
-    padding: 55px;
+    padding: 50px;
+    overflow-y: auto;
+    overflow-x: hidden;
   }
 
   .case-modal-header h2 {
-    font-size: 78px;
+    font-size: clamp(56px, 5vw, 78px);
+    line-height: 0.95;
   }
 
   .modal-intro {
     font-size: 22px;
+    line-height: 1.7;
     max-width: 900px;
+  }
+
+  .modal-section {
+    padding: 26px;
+  }
+
+  .modal-section h3 {
+    font-size: 20px;
   }
 
   .modal-section p {
     font-size: 17px;
-  }
-
-  .modal-section {
-    padding: 28px;
+    line-height: 1.75;
   }
 
   .case-modal-close {
@@ -1706,25 +1717,36 @@ body.modal-open {
     height: 50px;
     font-size: 32px;
   }
+
 }
 
-/* Very large classroom displays */
+
+/* =========================================================
+   VERY LARGE CLASSROOM DISPLAYS
+========================================================= */
 
 @media (min-width: 1800px) {
 
   .case-modal-panel {
     width: min(1250px, 80vw);
-    padding: 65px;
+    padding: 60px;
   }
 
   .case-modal-header h2 {
-    font-size: 92px;
+    font-size: clamp(64px, 5vw, 88px);
+  }
+
+  .modal-intro {
+    font-size: 23px;
   }
 
   .modal-section p {
     font-size: 19px;
+    line-height: 1.8;
   }
+
 }
+
 /* =========================================================
    CASE DOSSIER SCROLL + SMART BOARD FIX
 ========================================================= */
