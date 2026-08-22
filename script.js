@@ -1375,59 +1375,47 @@ const sourceData = {
 
 };
 /* =======================================================
-   SOURCE ARCHIVE — GOVERNMENT DOCUMENTS
+   GOVERNMENT DOCUMENTS — ARCHIVE BUTTON
 ======================================================= */
 
-const governmentArchiveButtons =
-  document.querySelectorAll(
-    ".source-card .source-button"
-  );
+document.addEventListener("click", event => {
 
-governmentArchiveButtons.forEach(
-  button => {
-
-    button.addEventListener(
-      "click",
-      event => {
-
-        event.preventDefault();
-
-        const card =
-          button.closest(".source-card");
-
-        if (!card) return;
-
-        const title =
-          card.querySelector("h3")
-            ?.textContent
-            .trim();
-
-        if (
-          title !==
-          "Government Documents"
-        ) {
-          return;
-        }
-
-        const data =
-          sourceData[
-            "Government Documents"
-          ];
-
-        if (!data) {
-          console.warn(
-            "Government Documents source data not found."
-          );
-          return;
-        }
-
-        openEvidenceModal(
-          "Government Documents",
-          data
-        );
-
-      }
+  const button =
+    event.target.closest(
+      ".source-card .source-button"
     );
 
+  if (!button) return;
+
+  const card =
+    button.closest(".source-card");
+
+  if (!card) return;
+
+  const title =
+    card.querySelector("h3")
+      ?.textContent
+      .trim();
+
+  if (title !== "Government Documents") {
+    return;
   }
-);
+
+  event.preventDefault();
+
+  const data =
+    sourceData["Government Documents"];
+
+  if (!data) {
+    console.warn(
+      "Government Documents data not found."
+    );
+    return;
+  }
+
+  openEvidenceModal(
+    "Government Documents",
+    data
+  );
+
+});
