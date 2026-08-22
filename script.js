@@ -1342,123 +1342,129 @@ document.addEventListener(
 
 });
 const sourceData = {
-"Government Documents": {
-  status: "🟢 PRIMARY / OFFICIAL",
 
-  intro:
-    "Explore publicly accessible government and parliamentary records used for historical research. These sources provide traceable documents rather than unsourced claims.",
+  "Government Documents": {
 
-  sections: [
+    status: "🟢 PRIMARY / OFFICIAL",
 
-    {
-      title: "KARGIL REVIEW COMMITTEE",
-      text:
-        "The Rajya Sabha record confirms that the Report of the Kargil Review Committee, its Executive Summary and the Government's action taken report were laid before Parliament in February 2000."
-    },
+    intro:
+      "Explore publicly accessible government and parliamentary records used for historical research. These sources provide traceable documents rather than unsourced claims.",
 
-    {
-      title: "PARLIAMENTARY RECORD",
-      text:
-        "Official parliamentary records contain questions, debates and government responses relating to national security, intelligence and the implementation of recommendations."
-    },
+    sections: [
 
-    {
-      title: "MINISTRY OF DEFENCE",
-      text:
-        "The Government of India's Press Information Bureau provides official releases and parliamentary-answer summaries concerning the Kargil Review Committee and national-security reforms."
-    },
+      {
+        title: "KARGIL REVIEW COMMITTEE",
+        text:
+          "The Rajya Sabha record confirms that the Report of the Kargil Review Committee, its Executive Summary and the Government's action taken report were laid before Parliament in February 2000."
+      },
 
-    {
-      title: "OPEN THE SOURCES",
-      text:
-        "Use the official links below to read the records directly. Where a complete classified or restricted file is not publicly available, this project does not present it as an accessible source."
-    }
+      {
+        title: "PARLIAMENTARY RECORD",
+        text:
+          "Official parliamentary records contain questions, debates and government responses relating to national security, intelligence and the implementation of recommendations."
+      },
 
-  ],
+      {
+        title: "MINISTRY OF DEFENCE",
+        text:
+          "The Government of India's Press Information Bureau provides official releases and parliamentary-answer summaries concerning the Kargil Review Committee and national-security reforms."
+      },
 
-  links: [
+      {
+        title: "OPEN THE SOURCES",
+        text:
+          "Use the official links below to read the records directly. Where a complete classified or restricted file is not publicly available, this project does not present it as an accessible source."
+      }
 
-    {
-      title: "Kargil Review Committee — Rajya Sabha",
-      url: "https://rsdebate.nic.in/handle/123456789/110129"
-    },
+    ],
 
-    {
-      title: "Kargil Review Committee — PIB",
-      url: "https://www.pib.gov.in/newsite/PrintRelease.aspx?lang=2&reg=3&relid=83711"
-    },
+    links: [
 
-    {
-      title: "Kargil Review Committee — Parliament Digital Library",
-      url: "https://eparlib.sansad.in/handle/123456789/464498"
-    },
+      {
+        title: "Kargil Review Committee — Rajya Sabha",
+        url: "https://rsdebate.nic.in/handle/123456789/110129"
+      },
 
-    {
-      title: "Ministry of External Affairs — Official Documents",
-      url: "https://www.mea.gov.in/"
-    }
+      {
+        title: "Kargil Review Committee — PIB",
+        url: "https://www.pib.gov.in/newsite/PrintRelease.aspx?lang=2&reg=3&relid=83711"
+      },
 
-  ],
-   "Research & Studies": {
+      {
+        title: "Kargil Review Committee — Parliament Digital Library",
+        url: "https://eparlib.sansad.in/handle/123456789/464498"
+      },
 
-  status: "🔵 ACADEMIC / RESEARCH",
+      {
+        title: "Ministry of External Affairs — Official Website",
+        url: "https://www.mea.gov.in/"
+      }
 
-  intro:
-    "Explore publicly accessible academic and institutional research that provides historical and analytical context for India's intelligence and national-security history.",
+    ]
 
-  sections: [
+  },
 
-    {
-      title: "ACADEMIC RESEARCH",
-      text:
-        "Academic research helps place intelligence history within its wider political, diplomatic, military and regional context."
-    },
+  "Research & Studies": {
 
-    {
-      title: "INSTITUTIONAL RESEARCH",
-      text:
-        "Research from universities, established research institutions and recognised journals can provide useful analysis while allowing readers to examine the original material themselves."
-    },
+    status: "🔵 ACADEMIC / RESEARCH",
 
-    {
-      title: "HOW TO READ THE EVIDENCE",
-      text:
-        "Check the author, institution, publication date, citations and whether the work distinguishes documented facts from interpretation or disputed claims."
-    },
+    intro:
+      "Explore publicly accessible academic and institutional research that provides historical and analytical context for India's intelligence and national-security history.",
 
-    {
-      title: "OPEN THE RESEARCH",
-      text:
-        "The links below lead to publicly accessible research platforms and institutional material."
-    }
+    sections: [
 
-  ],
+      {
+        title: "ACADEMIC RESEARCH",
+        text:
+          "Academic research helps place intelligence history within its wider political, diplomatic, military and regional context."
+      },
 
-  links: [
+      {
+        title: "INSTITUTIONAL RESEARCH",
+        text:
+          "Research from universities, established research institutions and recognised journals can provide useful analysis while allowing readers to examine the original material themselves."
+      },
 
-    {
-      title: "Institute for Defence Studies and Analyses (MP-IDSA)",
-      url: "https://www.idsa.in/"
-    },
+      {
+        title: "HOW TO READ THE EVIDENCE",
+        text:
+          "Check the author, institution, publication date, citations and whether the work distinguishes documented facts from interpretation or disputed claims."
+      },
 
-    {
-      title: "ORF — Observer Research Foundation",
-      url: "https://www.orfonline.org/"
-    },
+      {
+        title: "OPEN THE RESEARCH",
+        text:
+          "The links below lead to publicly accessible research platforms and institutional material."
+      }
 
-    {
-      title: "JSTOR — Academic Research",
-      url: "https://www.jstor.org/"
-    },
+    ],
 
-    {
-      title: "Google Scholar — Research Search",
-      url: "https://scholar.google.com/"
-    }
+    links: [
 
-  ]
+      {
+        title: "Institute for Defence Studies and Analyses (MP-IDSA)",
+        url: "https://www.idsa.in/"
+      },
 
-}
+      {
+        title: "ORF — Observer Research Foundation",
+        url: "https://www.orfonline.org/"
+      },
+
+      {
+        title: "JSTOR — Academic Research",
+        url: "https://www.jstor.org/"
+      },
+
+      {
+        title: "Google Scholar — Research Search",
+        url: "https://scholar.google.com/"
+      }
+
+    ]
+
+  }
+
 };
 
 /* =======================================================
