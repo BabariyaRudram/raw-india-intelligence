@@ -1399,8 +1399,68 @@ const sourceData = {
     }
 
   ]
+   "Research & Studies": {
+
+  status: "🔵 ACADEMIC / RESEARCH",
+
+  intro:
+    "Explore publicly accessible academic and institutional research that provides historical and analytical context for India's intelligence and national-security history.",
+
+  sections: [
+
+    {
+      title: "ACADEMIC RESEARCH",
+      text:
+        "Academic research helps place intelligence history within its wider political, diplomatic, military and regional context."
+    },
+
+    {
+      title: "INSTITUTIONAL RESEARCH",
+      text:
+        "Research from universities, established research institutions and recognised journals can provide useful analysis while allowing readers to examine the original material themselves."
+    },
+
+    {
+      title: "HOW TO READ THE EVIDENCE",
+      text:
+        "Check the author, institution, publication date, citations and whether the work distinguishes documented facts from interpretation or disputed claims."
+    },
+
+    {
+      title: "OPEN THE RESEARCH",
+      text:
+        "The links below lead to publicly accessible research platforms and institutional material."
+    }
+
+  ],
+
+  links: [
+
+    {
+      title: "Institute for Defence Studies and Analyses (MP-IDSA)",
+      url: "https://www.idsa.in/"
+    },
+
+    {
+      title: "ORF — Observer Research Foundation",
+      url: "https://www.orfonline.org/"
+    },
+
+    {
+      title: "JSTOR — Academic Research",
+      url: "https://www.jstor.org/"
+    },
+
+    {
+      title: "Google Scholar — Research Search",
+      url: "https://scholar.google.com/"
+    }
+
+  ]
+
 }
 };
+
 /* =======================================================
    GOVERNMENT DOCUMENTS — ARCHIVE
 ======================================================= */
