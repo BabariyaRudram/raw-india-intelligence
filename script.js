@@ -1360,3 +1360,36 @@ document.addEventListener(
   );
 
 });
+const sourceData = {
+
+  "Government Documents": {
+    status: "🟢 PRIMARY / OFFICIAL",
+
+    intro:
+      "Government documents provide some of the strongest publicly accessible material for researching intelligence and national-security history.",
+
+    sections: [
+      {
+        title: "WHAT TO LOOK FOR",
+        text:
+          "Parliamentary records, official reports, government releases, commissions of inquiry and declassified archival material can provide important evidence."
+      },
+      {
+        title: "HOW TO USE THEM",
+        text:
+          "Check the issuing institution, publication date, document number and surrounding historical context. A government document can establish what an institution officially recorded or stated, but it may not reveal classified operational details."
+      },
+      {
+        title: "EVIDENCE STANDARD",
+        text:
+          "Primary documents should be distinguished from later commentary, journalism and claims attributed to unnamed sources."
+      },
+      {
+        title: "RESEARCH NOTE",
+        text:
+          "This project prioritises publicly accessible and traceable records wherever possible."
+      }
+    ]
+  }
+
+};
