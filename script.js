@@ -1419,3 +1419,20 @@ document.addEventListener("click", event => {
   );
 
 });
+/* =======================================================
+   GOVERNMENT DOCUMENTS — TEST
+======================================================= */
+
+document.addEventListener("click", function(event) {
+
+  const button = event.target.closest(
+    ".source-card .source-button"
+  );
+
+  if (!button) return;
+
+  event.preventDefault();
+
+  button.textContent = "BUTTON WORKS ✓";
+
+});
