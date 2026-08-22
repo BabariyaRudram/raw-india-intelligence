@@ -1420,7 +1420,7 @@ document.addEventListener("click", event => {
 
 });
 /* =======================================================
-   GOVERNMENT DOCUMENTS — TEST
+   GOVERNMENT DOCUMENTS — FINAL
 ======================================================= */
 
 document.addEventListener("click", function(event) {
@@ -1433,6 +1433,51 @@ document.addEventListener("click", function(event) {
 
   event.preventDefault();
 
-  button.textContent = "BUTTON WORKS ✓";
+  const card =
+    button.closest(".source-card");
+
+  if (!card) return;
+
+  const title =
+    card.querySelector("h3")?.textContent.trim();
+
+  if (title !== "Government Documents") {
+    return;
+  }
+
+  const data = {
+    status: "🟢 PRIMARY / OFFICIAL",
+
+    intro:
+      "Government documents provide some of the strongest publicly accessible material for researching intelligence and national-security history.",
+
+    sections: [
+      {
+        title: "WHAT TO LOOK FOR",
+        text:
+          "Parliamentary records, official reports, government releases, commissions of inquiry and declassified archival material can provide important evidence."
+      },
+      {
+        title: "HOW TO USE THEM",
+        text:
+          "Check the issuing institution, publication date, document number and historical context. A government document can establish what an institution officially recorded or stated, but may not reveal classified operational details."
+      },
+      {
+        title: "EVIDENCE STANDARD",
+        text:
+          "Primary documents should be distinguished from later commentary, journalism and claims attributed to unnamed sources."
+      },
+      {
+        title: "RESEARCH NOTE",
+        text:
+          "This project prioritises publicly accessible and traceable records wherever possible."
+      }
+    ]
+  };
+
+  openEvidenceModal(
+    "Government Documents",
+    data
+  );
 
 });
