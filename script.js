@@ -1342,203 +1342,61 @@ document.addEventListener(
 
 });
 const sourceData = {
+"Government Documents": {
+  status: "🟢 PRIMARY / OFFICIAL",
 
-  "Government Documents": {
-    status: "🟢 PRIMARY / OFFICIAL",
+  intro:
+    "Explore publicly accessible government and parliamentary records used for historical research. These sources provide traceable documents rather than unsourced claims.",
 
-    intro:
-      "Government documents provide some of the strongest publicly accessible material for researching intelligence and national-security history.",
+  sections: [
 
-    sections: [
-      {
-        title: "WHAT TO LOOK FOR",
-        text:
-          "Parliamentary records, official reports, government releases, commissions of inquiry and declassified archival material can provide important evidence."
-      },
-      {
-        title: "HOW TO USE THEM",
-        text:
-          "Check the issuing institution, publication date, document number and surrounding historical context. A government document can establish what an institution officially recorded or stated, but it may not reveal classified operational details."
-      },
-      {
-        title: "EVIDENCE STANDARD",
-        text:
-          "Primary documents should be distinguished from later commentary, journalism and claims attributed to unnamed sources."
-      },
-      {
-        title: "RESEARCH NOTE",
-        text:
-          "This project prioritises publicly accessible and traceable records wherever possible."
-      }
-    ]
-  }
+    {
+      title: "KARGIL REVIEW COMMITTEE",
+      text:
+        "The Rajya Sabha record confirms that the Report of the Kargil Review Committee, its Executive Summary and the Government's action taken report were laid before Parliament in February 2000."
+    },
 
-};
-/* =======================================================
-   GOVERNMENT DOCUMENTS — FINAL ARCHIVE
-======================================================= */
+    {
+      title: "PARLIAMENTARY RECORD",
+      text:
+        "Official parliamentary records contain questions, debates and government responses relating to national security, intelligence and the implementation of recommendations."
+    },
 
-document.addEventListener("click", function (event) {
+    {
+      title: "MINISTRY OF DEFENCE",
+      text:
+        "The Government of India's Press Information Bureau provides official releases and parliamentary-answer summaries concerning the Kargil Review Committee and national-security reforms."
+    },
 
-  const button = event.target.closest(
-    ".source-card .source-button"
-  );
+    {
+      title: "OPEN THE SOURCES",
+      text:
+        "Use the official links below to read the records directly. Where a complete classified or restricted file is not publicly available, this project does not present it as an accessible source."
+    }
 
-  if (!button) return;
+  ],
 
-  const card = button.closest(".source-card");
+  links: [
 
-  if (!card) return;
+    {
+      title: "Kargil Review Committee — Rajya Sabha",
+      url: "https://rsdebate.nic.in/handle/123456789/110129"
+    },
 
-  const title =
-    card.querySelector("h3")?.textContent.trim();
+    {
+      title: "Kargil Review Committee — PIB",
+      url: "https://www.pib.gov.in/newsite/PrintRelease.aspx?lang=2&reg=3&relid=83711"
+    },
 
-  if (title !== "Government Documents") return;
+    {
+      title: "Kargil Review Committee — Parliament Digital Library",
+      url: "https://eparlib.sansad.in/handle/123456789/464498"
+    },
 
-  event.preventDefault();
+    {
+      title: "Ministry of External Affairs — Official Documents",
+      url: "https://www.mea.gov.in/"
+    }
 
-  const data = sourceData["Government Documents"];
-
-  if (!data) return;
-
-  /* Create modal only once */
-
-  let modal =
-    document.getElementById("governmentDocumentsModal");
-
-  if (!modal) {
-
-    modal = document.createElement("div");
-
-    modal.id =
-      "governmentDocumentsModal";
-
-    modal.className =
-      "case-modal";
-
-    modal.innerHTML = `
-
-      <div class="case-modal-backdrop"></div>
-
-      <div
-        class="case-modal-panel"
-        role="dialog"
-        aria-modal="true"
-        aria-labelledby="governmentDocumentsTitle"
-      >
-
-        <button
-          class="case-modal-close"
-          type="button"
-          aria-label="Close Government Documents"
-        >
-          ×
-        </button>
-
-        <div class="case-modal-header">
-
-          <span class="modal-case-number">
-            SOURCE FILE
-          </span>
-
-          <span class="modal-case-year">
-            PRIMARY / OFFICIAL
-          </span>
-
-          <h2 id="governmentDocumentsTitle">
-            Government Documents
-          </h2>
-
-          <div class="modal-evidence">
-            ${data.status}
-          </div>
-
-        </div>
-
-        <div class="modal-intro">
-          ${data.intro}
-        </div>
-
-        <div class="modal-sections"></div>
-
-        <div class="modal-footer">
-
-          <div class="modal-warning">
-
-            <strong>PUBLIC-SOURCE NOTE</strong>
-
-            <p>
-              Official documents can establish what
-              governments publicly recorded or stated,
-              but classified operational details may
-              not be publicly available.
-            </p>
-
-          </div>
-
-        </div>
-
-      </div>
-    `;
-
-    document.body.appendChild(modal);
-
-    const sections =
-      modal.querySelector(".modal-sections");
-
-    data.sections.forEach(section => {
-
-      const article =
-        document.createElement("article");
-
-      article.className =
-        "modal-section";
-
-      article.innerHTML = `
-        <h3>${section.title}</h3>
-        <p>${section.text}</p>
-      `;
-
-      sections.appendChild(article);
-
-    });
-
-    const closeButton =
-      modal.querySelector(".case-modal-close");
-
-    const backdrop =
-      modal.querySelector(".case-modal-backdrop");
-
-    closeButton.addEventListener(
-      "click",
-      () => {
-
-        modal.classList.remove("open");
-
-        document.body.classList.remove(
-          "modal-open"
-        );
-
-      }
-    );
-
-    backdrop.addEventListener(
-      "click",
-      () => {
-
-        modal.classList.remove("open");
-
-        document.body.classList.remove(
-          "modal-open"
-        );
-
-      }
-    );
-
-  }
-
-  modal.classList.add("open");
-
-  document.body.classList.add("modal-open");
-
-});
+  ]
+}
