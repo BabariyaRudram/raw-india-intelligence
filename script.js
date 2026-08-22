@@ -1342,68 +1342,64 @@ document.addEventListener(
 
 });
 const sourceData = {
+"Government Documents": {
+  status: "🟢 PRIMARY / OFFICIAL",
 
-  "Government Documents": {
+  intro:
+    "Explore publicly accessible government and parliamentary records used for historical research. These sources provide traceable documents rather than unsourced claims.",
 
-    status: "🟢 PRIMARY / OFFICIAL",
+  sections: [
 
-    intro:
-      "Explore publicly accessible government and parliamentary records used for historical research. These sources provide traceable documents rather than unsourced claims.",
+    {
+      title: "KARGIL REVIEW COMMITTEE",
+      text:
+        "The Rajya Sabha record confirms that the Report of the Kargil Review Committee, its Executive Summary and the Government's action taken report were laid before Parliament in February 2000."
+    },
 
-    sections: [
+    {
+      title: "PARLIAMENTARY RECORD",
+      text:
+        "Official parliamentary records contain questions, debates and government responses relating to national security, intelligence and the implementation of recommendations."
+    },
 
-      {
-        title: "KARGIL REVIEW COMMITTEE",
-        text:
-          "The Rajya Sabha record confirms that the Report of the Kargil Review Committee, its Executive Summary and the Government's action taken report were laid before Parliament in February 2000."
-      },
+    {
+      title: "MINISTRY OF DEFENCE",
+      text:
+        "The Government of India's Press Information Bureau provides official releases and parliamentary-answer summaries concerning the Kargil Review Committee and national-security reforms."
+    },
 
-      {
-        title: "PARLIAMENTARY RECORD",
-        text:
-          "Official parliamentary records contain questions, debates and government responses relating to national security, intelligence and the implementation of recommendations."
-      },
+    {
+      title: "OPEN THE SOURCES",
+      text:
+        "Use the official links below to read the records directly. Where a complete classified or restricted file is not publicly available, this project does not present it as an accessible source."
+    }
 
-      {
-        title: "MINISTRY OF DEFENCE",
-        text:
-          "The Government of India's Press Information Bureau provides official releases and parliamentary-answer summaries concerning the Kargil Review Committee and national-security reforms."
-      },
+  ],
 
-      {
-        title: "OPEN THE SOURCES",
-        text:
-          "Use the official links below to read the records directly. Where a complete classified or restricted file is not publicly available, this project does not present it as an accessible source."
-      }
+  links: [
 
-    ],
+    {
+      title: "Kargil Review Committee — Rajya Sabha",
+      url: "https://rsdebate.nic.in/handle/123456789/110129"
+    },
 
-    links: [
+    {
+      title: "Kargil Review Committee — PIB",
+      url: "https://www.pib.gov.in/newsite/PrintRelease.aspx?lang=2&reg=3&relid=83711"
+    },
 
-      {
-        title: "Kargil Review Committee — Rajya Sabha",
-        url: "https://rsdebate.nic.in/handle/123456789/110129"
-      },
+    {
+      title: "Kargil Review Committee — Parliament Digital Library",
+      url: "https://eparlib.sansad.in/handle/123456789/464498"
+    },
 
-      {
-        title: "Kargil Review Committee — PIB",
-        url: "https://www.pib.gov.in/newsite/PrintRelease.aspx?lang=2&reg=3&relid=83711"
-      },
+    {
+      title: "Ministry of External Affairs — Official Documents",
+      url: "https://www.mea.gov.in/"
+    }
 
-      {
-        title: "Kargil Review Committee — Parliament Digital Library",
-        url: "https://eparlib.sansad.in/handle/123456789/464498"
-      },
-
-      {
-        title: "Ministry of External Affairs — Official Website",
-        url: "https://www.mea.gov.in/"
-      }
-
-    ]
-
-  },
-};
+  ]
+}
 
 /* =======================================================
    GOVERNMENT DOCUMENTS — ARCHIVE
