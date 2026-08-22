@@ -1393,3 +1393,60 @@ const sourceData = {
   }
 
 };
+/* =======================================================
+   SOURCE ARCHIVE — GOVERNMENT DOCUMENTS
+======================================================= */
+
+const governmentArchiveButtons =
+  document.querySelectorAll(
+    ".source-card .source-button"
+  );
+
+governmentArchiveButtons.forEach(
+  button => {
+
+    button.addEventListener(
+      "click",
+      event => {
+
+        event.preventDefault();
+
+        const card =
+          button.closest(".source-card");
+
+        if (!card) return;
+
+        const title =
+          card.querySelector("h3")
+            ?.textContent
+            .trim();
+
+        if (
+          title !==
+          "Government Documents"
+        ) {
+          return;
+        }
+
+        const data =
+          sourceData[
+            "Government Documents"
+          ];
+
+        if (!data) {
+          console.warn(
+            "Government Documents source data not found."
+          );
+          return;
+        }
+
+        openEvidenceModal(
+          "Government Documents",
+          data
+        );
+
+      }
+    );
+
+  }
+);
