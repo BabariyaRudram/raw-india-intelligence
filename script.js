@@ -1375,51 +1375,6 @@ const sourceData = {
 
 };
 /* =======================================================
-   GOVERNMENT DOCUMENTS — ARCHIVE BUTTON
-======================================================= */
-
-document.addEventListener("click", event => {
-
-  const button =
-    event.target.closest(
-      ".source-card .source-button"
-    );
-
-  if (!button) return;
-
-  const card =
-    button.closest(".source-card");
-
-  if (!card) return;
-
-  const title =
-    card.querySelector("h3")
-      ?.textContent
-      .trim();
-
-  if (title !== "Government Documents") {
-    return;
-  }
-
-  event.preventDefault();
-
-  const data =
-    sourceData["Government Documents"];
-
-  if (!data) {
-    console.warn(
-      "Government Documents data not found."
-    );
-    return;
-  }
-
-  openEvidenceModal(
-    "Government Documents",
-    data
-  );
-
-});
-/* =======================================================
    GOVERNMENT DOCUMENTS — FINAL
 ======================================================= */
 
@@ -1430,8 +1385,6 @@ document.addEventListener("click", function(event) {
   );
 
   if (!button) return;
-
-  event.preventDefault();
 
   const card =
     button.closest(".source-card");
@@ -1444,6 +1397,8 @@ document.addEventListener("click", function(event) {
   if (title !== "Government Documents") {
     return;
   }
+
+  event.preventDefault();
 
   const data = {
     status: "🟢 PRIMARY / OFFICIAL",
