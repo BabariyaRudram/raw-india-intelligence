@@ -1814,3 +1814,798 @@ body.modal-open {
 .case-card:hover .case-image-placeholder img {
   transform: scale(1.04);
 }
+/* =========================================================
+   R&AW — INTELLIGENCE ARCHIVE UI UPGRADE
+   Visual layer only — content/functionality unchanged
+   ========================================================= */
+
+:root {
+  --bg: #020814;
+  --bg-soft: #061426;
+  --bg-card: #081a2f;
+  --text: #edf6ff;
+  --muted: #91a7bd;
+  --line: rgba(77, 163, 255, 0.18);
+
+  --accent: #4da3ff;
+  --accent-soft: rgba(77, 163, 255, 0.11);
+
+  --green: #55d18a;
+  --blue: #62b4ff;
+  --yellow: #e1c35c;
+  --orange: #e58b52;
+
+  --max-width: 1180px;
+  --radius: 12px;
+
+  --shadow:
+    0 25px 80px rgba(0, 0, 0, 0.55);
+}
+
+/* ---------- GLOBAL ---------- */
+
+html {
+  background: #020814;
+  scroll-behavior: smooth;
+}
+
+body {
+  background:
+    radial-gradient(
+      circle at 50% -10%,
+      rgba(36, 104, 170, 0.14),
+      transparent 38%
+    ),
+    linear-gradient(
+      180deg,
+      #020814 0%,
+      #030b17 45%,
+      #020711 100%
+    );
+
+  color: var(--text);
+}
+
+/* Subtle technical atmosphere */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+
+  background-image:
+    linear-gradient(
+      rgba(77, 163, 255, 0.025) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      90deg,
+      rgba(77, 163, 255, 0.025) 1px,
+      transparent 1px
+    );
+
+  background-size: 70px 70px;
+
+  mask-image:
+    linear-gradient(
+      to bottom,
+      rgba(0,0,0,0.8),
+      transparent 90%
+    );
+}
+
+/* ---------- HEADER ---------- */
+
+.site-header {
+  background:
+    linear-gradient(
+      180deg,
+      rgba(2, 8, 20, 0.97),
+      rgba(3, 12, 25, 0.82)
+    );
+
+  border-bottom: 1px solid rgba(77, 163, 255, 0.18);
+
+  box-shadow:
+    0 8px 35px rgba(0, 0, 0, 0.35);
+}
+
+.site-header::after {
+  content: "";
+  display: block;
+  height: 1px;
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      rgba(77, 163, 255, 0.7),
+      transparent
+    );
+
+  opacity: 0.45;
+}
+
+.brand-mark {
+  color: #ffffff;
+  text-shadow:
+    0 0 18px rgba(77, 163, 255, 0.25);
+}
+
+.brand-subtitle {
+  color: #7890a8;
+}
+
+.nav-links a {
+  position: relative;
+  color: #8fa6bd;
+  transition:
+    color 0.25s ease,
+    transform 0.25s ease;
+}
+
+.nav-links a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 100%;
+  bottom: -8px;
+  height: 1px;
+
+  background: var(--accent);
+
+  transition: right 0.25s ease;
+}
+
+.nav-links a:hover {
+  color: #e9f5ff;
+  transform: translateY(-1px);
+}
+
+.nav-links a:hover::after {
+  right: 0;
+}
+
+/* ---------- HERO ---------- */
+
+.hero {
+  background:
+    radial-gradient(
+      circle at 72% 42%,
+      rgba(40, 121, 203, 0.18),
+      transparent 28%
+    ),
+    radial-gradient(
+      circle at 15% 80%,
+      rgba(18, 70, 125, 0.16),
+      transparent 34%
+    ),
+    linear-gradient(
+      135deg,
+      #020814 0%,
+      #041225 52%,
+      #020812 100%
+    );
+}
+
+.hero::before {
+  background-image:
+    linear-gradient(
+      rgba(77, 163, 255, 0.045) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      90deg,
+      rgba(77, 163, 255, 0.045) 1px,
+      transparent 1px
+    );
+
+  background-size: 55px 55px;
+
+  mask-image:
+    linear-gradient(
+      to bottom,
+      black 0%,
+      rgba(0,0,0,0.7) 45%,
+      transparent 100%
+    );
+}
+
+.hero-overlay {
+  background:
+    linear-gradient(
+      90deg,
+      rgba(2, 8, 20, 0.97) 0%,
+      rgba(2, 12, 27, 0.66) 48%,
+      rgba(2, 8, 20, 0.92) 100%
+    );
+}
+
+.hero h1 {
+  color: #f4f9ff;
+
+  text-shadow:
+    0 0 45px rgba(77, 163, 255, 0.12);
+}
+
+.hero h2 {
+  color: #dbeeff;
+}
+
+.hero-question {
+  color: #91a9c0;
+}
+
+/* Intelligence-style metadata line */
+.hero-content::after {
+  content: "";
+  display: block;
+
+  width: min(520px, 80%);
+
+  height: 1px;
+  margin-top: 35px;
+
+  background:
+    linear-gradient(
+      90deg,
+      rgba(77, 163, 255, 0.65),
+      transparent
+    );
+
+  opacity: 0.55;
+}
+
+/* ---------- BUTTONS ---------- */
+
+.primary-button {
+  color: #69b5ff;
+  border-color: rgba(77, 163, 255, 0.65);
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(77, 163, 255, 0.08),
+      rgba(77, 163, 255, 0.02)
+    );
+
+  box-shadow:
+    inset 0 0 20px rgba(77, 163, 255, 0.025),
+    0 0 0 rgba(77, 163, 255, 0);
+}
+
+.primary-button:hover {
+  background: rgba(77, 163, 255, 0.14);
+  color: #ffffff;
+  border-color: #62b4ff;
+
+  box-shadow:
+    0 0 25px rgba(77, 163, 255, 0.12);
+}
+
+/* ---------- SECTION LABELS ---------- */
+
+.section-label,
+.eyebrow {
+  color: #5eafff;
+
+  text-shadow:
+    0 0 15px rgba(77, 163, 255, 0.16);
+}
+
+.section-label::before,
+.eyebrow::before {
+  content: "// ";
+  opacity: 0.55;
+}
+
+/* ---------- HEADINGS ---------- */
+
+.section-heading h2,
+.intro-grid h2,
+.founder-info h3 {
+  color: #edf6ff;
+
+  text-shadow:
+    0 10px 40px rgba(0, 0, 0, 0.45);
+}
+
+/* ---------- DIVIDERS ---------- */
+
+.origin-section {
+  border-top-color: rgba(77, 163, 255, 0.18);
+}
+
+.timeline-mini {
+  border-top-color: rgba(77, 163, 255, 0.18);
+}
+
+.timeline-item {
+  border-right-color: rgba(77, 163, 255, 0.14);
+}
+
+.timeline-item:first-child {
+  border-left-color: rgba(77, 163, 255, 0.14);
+}
+
+.timeline-item.highlight {
+  background:
+    linear-gradient(
+      135deg,
+      rgba(77, 163, 255, 0.12),
+      rgba(77, 163, 255, 0.025)
+    );
+}
+
+/* ---------- CARDS ---------- */
+
+.dark-section {
+  background:
+    linear-gradient(
+      180deg,
+      #03101f,
+      #020b17
+    );
+}
+
+.timeline-card,
+.case-card,
+.person-card,
+.flow-step,
+.shadow-card,
+.source-card,
+.methodology-box,
+.founder-card {
+  background:
+    linear-gradient(
+      145deg,
+      rgba(9, 29, 50, 0.96),
+      rgba(5, 18, 32, 0.98)
+    );
+
+  border-color: rgba(77, 163, 255, 0.15);
+
+  box-shadow:
+    0 18px 55px rgba(0, 0, 0, 0.28);
+
+  position: relative;
+}
+
+/* Thin dossier-style top edge */
+.timeline-card::before,
+.case-card::before,
+.person-card::before,
+.flow-step::before,
+.shadow-card::before,
+.source-card::before {
+  content: "";
+  position: absolute;
+
+  top: 0;
+  left: 0;
+  right: 0;
+
+  height: 1px;
+
+  background:
+    linear-gradient(
+      90deg,
+      rgba(77, 163, 255, 0.55),
+      transparent 65%
+    );
+
+  opacity: 0.55;
+}
+
+/* Make positioned cards safe for the pseudo-element */
+.timeline-card,
+.case-card,
+.person-card,
+.flow-step,
+.shadow-card,
+.source-card {
+  overflow: hidden;
+}
+
+/* ---------- CARD HOVER ---------- */
+
+.timeline-card:hover,
+.case-card:hover,
+.person-card:hover,
+.flow-step:hover,
+.shadow-card:hover,
+.source-card:hover {
+  border-color: rgba(77, 163, 255, 0.42);
+
+  box-shadow:
+    0 24px 70px rgba(0, 0, 0, 0.42),
+    0 0 35px rgba(38, 116, 190, 0.06);
+}
+
+.timeline-card:hover {
+  transform: translateY(-5px);
+}
+
+.case-card:hover {
+  transform: translateY(-7px);
+}
+
+/* ---------- TIMELINE ---------- */
+
+.timeline-card .year,
+.timeline-item span {
+  color: #5eb1ff;
+
+  text-shadow:
+    0 0 14px rgba(77, 163, 255, 0.15);
+}
+
+/* ---------- CASE FILES ---------- */
+
+.case-number {
+  color: #718ba4;
+  background: rgba(2, 8, 20, 0.25);
+
+  border-bottom: 1px solid rgba(77, 163, 255, 0.08);
+}
+
+.case-image-placeholder {
+  background:
+    linear-gradient(
+      135deg,
+      #0a2139,
+      #04101e
+    );
+
+  color: #6f879e;
+
+  position: relative;
+}
+
+.case-image-placeholder::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+
+  background:
+    linear-gradient(
+      115deg,
+      transparent 40%,
+      rgba(77, 163, 255, 0.055) 50%,
+      transparent 60%
+    );
+
+  pointer-events: none;
+}
+
+.case-year {
+  color: #5eb1ff;
+}
+
+.case-button {
+  color: #62b4ff;
+  border-color: rgba(77, 163, 255, 0.17);
+
+  background:
+    linear-gradient(
+      90deg,
+      rgba(77, 163, 255, 0.025),
+      transparent
+    );
+}
+
+.case-button:hover {
+  color: #ffffff;
+
+  background:
+    rgba(77, 163, 255, 0.10);
+
+  border-color: rgba(77, 163, 255, 0.65);
+
+  box-shadow:
+    0 0 22px rgba(77, 163, 255, 0.08);
+}
+
+/* ---------- EVIDENCE SYSTEM ---------- */
+
+.evidence-tag {
+  background: rgba(2, 8, 20, 0.3);
+  border-color: rgba(77, 163, 255, 0.15);
+}
+
+.evidence-tag.reported {
+  color: #62b4ff;
+}
+
+.evidence-tag.documented {
+  color: #55d18a;
+}
+
+.evidence-tag.disputed {
+  color: #e1c35c;
+}
+
+/* ---------- PEOPLE ---------- */
+
+.person-placeholder {
+  background:
+    linear-gradient(
+      135deg,
+      #0a1e34,
+      #040e1b
+    );
+
+  border-bottom: 1px solid rgba(77, 163, 255, 0.10);
+}
+
+/* ---------- INTELLIGENCE FLOW ---------- */
+
+.flow-step {
+  background:
+    linear-gradient(
+      145deg,
+      rgba(8, 27, 47, 0.98),
+      rgba(3, 14, 26, 0.98)
+    );
+}
+
+.flow-step span,
+.flow-arrow {
+  color: #62b4ff;
+}
+
+/* ---------- SHADOW FILES ---------- */
+
+.shadow-section {
+  background:
+    radial-gradient(
+      circle at 80% 20%,
+      rgba(34, 105, 173, 0.12),
+      transparent 32%
+    ),
+    linear-gradient(
+      180deg,
+      #020a15,
+      #010711
+    );
+}
+
+.shadow-card span,
+.shadow-card button {
+  color: #62b4ff;
+}
+
+.shadow-card button:hover {
+  color: #ffffff;
+}
+
+/* ---------- EVIDENCE LEGEND ---------- */
+
+.evidence-legend {
+  background:
+    rgba(5, 20, 36, 0.65);
+
+  border-color:
+    rgba(77, 163, 255, 0.16);
+
+  box-shadow:
+    inset 0 0 35px rgba(77, 163, 255, 0.015);
+}
+
+/* ---------- FAQ ---------- */
+
+details {
+  border-top-color: rgba(77, 163, 255, 0.14);
+}
+
+details:last-child {
+  border-bottom-color: rgba(77, 163, 255, 0.14);
+}
+
+summary::after {
+  color: #62b4ff;
+
+  text-shadow:
+    0 0 14px rgba(77, 163, 255, 0.2);
+}
+
+details p {
+  color: #91a7bd;
+}
+
+/* ---------- SOURCE VAULT ---------- */
+
+.source-card {
+  background:
+    linear-gradient(
+      145deg,
+      #081c31,
+      #04101d
+    );
+}
+
+.source-card span,
+.source-card button {
+  color: #62b4ff;
+}
+
+.source-card button {
+  border-color: rgba(77, 163, 255, 0.17);
+
+  background:
+    rgba(77, 163, 255, 0.025);
+}
+
+.source-card button:hover {
+  color: #ffffff;
+
+  background:
+    rgba(77, 163, 255, 0.10);
+
+  border-color:
+    rgba(77, 163, 255, 0.55);
+}
+
+/* ---------- FOUNDER / ARCHIVE CARD ---------- */
+
+.founder-card {
+  background:
+    linear-gradient(
+      145deg,
+      #081d32,
+      #030e1b
+    );
+}
+
+.portrait-placeholder {
+  background:
+    repeating-linear-gradient(
+      45deg,
+      #0b2036,
+      #0b2036 10px,
+      #071728 10px,
+      #071728 20px
+    );
+}
+
+/* ---------- SCROLLBAR ---------- */
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #020814;
+}
+
+::-webkit-scrollbar-thumb {
+  background:
+    linear-gradient(
+      180deg,
+      #164b78,
+      #0a2947
+    );
+
+  border-radius: 20px;
+
+  border: 2px solid #020814;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #2879b8;
+}
+
+/* ---------- TEXT SELECTION ---------- */
+
+::selection {
+  background: rgba(77, 163, 255, 0.28);
+  color: #ffffff;
+}
+
+/* ---------- ACCESSIBILITY ---------- */
+
+:focus-visible {
+  outline: 2px solid #62b4ff;
+  outline-offset: 4px;
+}
+
+/* ---------- SUBTLE SCAN EFFECT ---------- */
+
+@keyframes intelligenceScan {
+  0% {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+
+  15% {
+    opacity: 0.35;
+  }
+
+  50% {
+    opacity: 0.12;
+  }
+
+  100% {
+    transform: translateY(100vh);
+    opacity: 0;
+  }
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+
+  left: 0;
+  right: 0;
+  top: 0;
+
+  height: 1px;
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      rgba(77, 163, 255, 0.25),
+      transparent
+    );
+
+  animation:
+    intelligenceScan 12s linear infinite;
+
+  pointer-events: none;
+}
+
+/* ---------- MOBILE ---------- */
+
+@media (max-width: 800px) {
+
+  .site-header {
+    background:
+      rgba(2, 8, 20, 0.97);
+  }
+
+  .hero {
+    background:
+      radial-gradient(
+        circle at 50% 35%,
+        rgba(40, 121, 203, 0.14),
+        transparent 35%
+      ),
+      #020814;
+  }
+
+  .hero h1 {
+    text-shadow:
+      0 0 30px rgba(77, 163, 255, 0.10);
+  }
+
+  .section-heading h2 {
+    text-shadow:
+      0 8px 30px rgba(0, 0, 0, 0.4);
+  }
+
+  .timeline-card,
+  .case-card,
+  .person-card,
+  .flow-step,
+  .shadow-card,
+  .source-card {
+    box-shadow:
+      0 15px 40px rgba(0, 0, 0, 0.32);
+  }
+}
+
+/* ---------- REDUCED MOTION ---------- */
+
+@media (prefers-reduced-motion: reduce) {
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+}
