@@ -2512,3 +2512,202 @@ details p {
     transition-duration: 0.01ms !important;
   }
 }       
+/* =========================================================
+   R&AW — INTELLIGENCE ARCHIVE BACKGROUND
+   VISUAL ONLY
+========================================================= */
+
+body {
+  position: relative;
+  background-color: #070a09;
+}
+
+/* Fine archival grid */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: -2;
+
+  background-image:
+    linear-gradient(
+      rgba(177, 151, 82, 0.025) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      90deg,
+      rgba(177, 151, 82, 0.025) 1px,
+      transparent 1px
+    );
+
+  background-size: 70px 70px;
+  mask-image: linear-gradient(
+    to bottom,
+    black,
+    transparent 85%
+  );
+}
+
+
+/* Large atmospheric intelligence glow */
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: -3;
+
+  background:
+    radial-gradient(
+      circle at 12% 18%,
+      rgba(64, 87, 67, 0.13),
+      transparent 25%
+    ),
+    radial-gradient(
+      circle at 88% 32%,
+      rgba(150, 125, 58, 0.07),
+      transparent 22%
+    ),
+    radial-gradient(
+      circle at 50% 85%,
+      rgba(41, 70, 53, 0.09),
+      transparent 30%
+    );
+}
+
+
+/* ---------- ARCHIVAL SECTION ATMOSPHERE ---------- */
+
+section {
+  position: relative;
+  isolation: isolate;
+}
+
+section::before {
+  content: "";
+  position: absolute;
+  width: 260px;
+  height: 260px;
+  top: 5%;
+  right: -130px;
+
+  border: 1px solid rgba(177, 151, 82, 0.055);
+  border-radius: 50%;
+
+  box-shadow:
+    0 0 0 35px rgba(177, 151, 82, 0.018),
+    0 0 0 70px rgba(177, 151, 82, 0.012);
+
+  pointer-events: none;
+  z-index: -1;
+}
+
+
+/* ---------- INTELLIGENCE FILE MARKERS ---------- */
+
+.case-card::after,
+.shadow-card::after,
+.source-card::after {
+  content: "R&AW // ARCHIVE";
+  position: absolute;
+  top: 14px;
+  right: 16px;
+
+  font-size: 8px;
+  letter-spacing: 0.18em;
+
+  color: rgba(177, 151, 82, 0.20);
+
+  pointer-events: none;
+}
+
+
+/* ---------- SUBTLE CORNER DETAILS ---------- */
+
+.person-card::after {
+  content: "";
+  position: absolute;
+  right: 12px;
+  bottom: 12px;
+
+  width: 26px;
+  height: 26px;
+
+  border-right: 1px solid rgba(177, 151, 82, 0.20);
+  border-bottom: 1px solid rgba(177, 151, 82, 0.20);
+
+  pointer-events: none;
+}
+
+
+/* ---------- ARCHIVAL SCAN LINE ---------- */
+
+.hero::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+  height: 1px;
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      rgba(177, 151, 82, 0.55),
+      transparent
+    );
+
+  box-shadow:
+    0 -8px 30px rgba(177, 151, 82, 0.06);
+
+  pointer-events: none;
+}
+
+
+/* ---------- SECTION DIVISION ---------- */
+
+section + section {
+  border-top: 1px solid rgba(177, 151, 82, 0.035);
+}
+
+
+/* ---------- RESPONSIVE CONTROL ---------- */
+
+@media (max-width: 768px) {
+
+  body::before {
+    background-size: 50px 50px;
+    opacity: 0.65;
+  }
+
+  section::before {
+    width: 180px;
+    height: 180px;
+    right: -90px;
+  }
+
+  .case-card::after,
+  .shadow-card::after,
+  .source-card::after {
+    display: none;
+  }
+}
+
+
+/* ---------- LARGE DISPLAY ---------- */
+
+@media (min-width: 1400px) {
+
+  body::before {
+    background-size: 90px 90px;
+  }
+
+  section::before {
+    width: 340px;
+    height: 340px;
+    right: -170px;
+  }
+}
