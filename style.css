@@ -2711,3 +2711,347 @@ section + section {
     right: -170px;
   }
 }
+/* =========================================================
+   R&AW — SOLID INTELLIGENCE ARCHIVE ELEMENTS
+   CSS ONLY — NO FUNCTIONALITY CHANGES
+========================================================= */
+
+/* ---------- FIXED ARCHIVE FRAME ---------- */
+
+body {
+  --raw-gold: rgba(177, 151, 82, 0.32);
+  --raw-green: rgba(70, 96, 72, 0.18);
+}
+
+/* Left intelligence tracking line */
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 18px;
+  width: 1px;
+  height: 100vh;
+
+  background: linear-gradient(
+    to bottom,
+    transparent,
+    var(--raw-gold),
+    transparent
+  );
+
+  pointer-events: none;
+  z-index: 50;
+  opacity: 0.45;
+}
+
+
+/* Right tracking line */
+body::after {
+  content: "";
+  position: fixed;
+  top: 0;
+  right: 18px;
+  width: 1px;
+  height: 100vh;
+
+  background: linear-gradient(
+    to bottom,
+    transparent,
+    var(--raw-green),
+    transparent
+  );
+
+  pointer-events: none;
+  z-index: 50;
+}
+
+
+/* ---------- HERO INTELLIGENCE MARK ---------- */
+
+.hero::before {
+  content: "R&AW  //  RESEARCH & ANALYSIS WING";
+  position: absolute;
+
+  top: 28px;
+  left: 30px;
+
+  padding: 8px 12px;
+
+  border: 1px solid rgba(177, 151, 82, 0.28);
+
+  background: rgba(5, 8, 7, 0.58);
+
+  color: rgba(214, 195, 139, 0.72);
+
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+
+  z-index: 3;
+  pointer-events: none;
+}
+
+
+/* ---------- HERO FILE NUMBER ---------- */
+
+.hero .hero-content::before {
+  content: "FILE 01 / INDIA / INTELLIGENCE ARCHIVE";
+
+  display: block;
+
+  margin-bottom: 18px;
+
+  font-size: 9px;
+  letter-spacing: 0.20em;
+
+  color: rgba(232, 218, 174, 0.48);
+}
+
+
+/* ---------- SECTION FILE MARKER ---------- */
+
+section::after {
+  content: "R&AW // OPEN SOURCE ARCHIVE";
+
+  position: absolute;
+
+  right: 24px;
+  bottom: 18px;
+
+  font-size: 8px;
+  letter-spacing: 0.18em;
+
+  color: rgba(177, 151, 82, 0.16);
+
+  pointer-events: none;
+}
+
+
+/* ---------- DOSSIER CARD CORNERS ---------- */
+
+.case-card,
+.shadow-card,
+.source-card,
+.person-card {
+  position: relative;
+}
+
+.case-card::before,
+.shadow-card::before,
+.source-card::before,
+.person-card::before {
+  content: "";
+
+  position: absolute;
+
+  top: 0;
+  left: 0;
+
+  width: 34px;
+  height: 34px;
+
+  border-top: 1px solid rgba(177, 151, 82, 0.42);
+  border-left: 1px solid rgba(177, 151, 82, 0.42);
+
+  pointer-events: none;
+
+  z-index: 4;
+}
+
+
+/* ---------- DOSSIER BOTTOM CORNER ---------- */
+
+.case-card::after,
+.shadow-card::after,
+.source-card::after,
+.person-card::after {
+  content: "FIELD FILE";
+
+  position: absolute;
+
+  right: 14px;
+  bottom: 12px;
+
+  font-size: 7px;
+  letter-spacing: 0.20em;
+
+  color: rgba(177, 151, 82, 0.25);
+
+  pointer-events: none;
+}
+
+
+/* ---------- SOURCE CARDS ---------- */
+
+.source-card {
+  background:
+    linear-gradient(
+      135deg,
+      rgba(27, 32, 28, 0.98),
+      rgba(10, 13, 11, 0.98)
+    );
+}
+
+.source-card::after {
+  content: "SOURCE // VERIFIED ACCESS";
+}
+
+
+/* ---------- EVIDENCE CARDS ---------- */
+
+.shadow-card {
+  background:
+    linear-gradient(
+      135deg,
+      rgba(25, 30, 27, 0.98),
+      rgba(9, 12, 11, 0.98)
+    );
+}
+
+.shadow-card::after {
+  content: "EVIDENCE // REVIEW";
+}
+
+
+/* ---------- PEOPLE CARDS ---------- */
+
+.person-card::after {
+  content: "PERSONNEL // ARCHIVE";
+}
+
+
+/* ---------- CASE CARDS ---------- */
+
+.case-card::after {
+  content: "CASE FILE // ARCHIVE";
+}
+
+
+/* ---------- INTELLIGENCE STATUS LINE ---------- */
+
+.shadow-card span:first-child,
+.source-card span:first-child {
+  position: relative;
+}
+
+.shadow-card span:first-child::before,
+.source-card span:first-child::before {
+  content: "";
+
+  display: inline-block;
+
+  width: 6px;
+  height: 6px;
+
+  margin-right: 7px;
+
+  border-radius: 50%;
+
+  background: rgba(177, 151, 82, 0.75);
+
+  box-shadow:
+    0 0 8px rgba(177, 151, 82, 0.30);
+}
+
+
+/* ---------- ARCHIVE GRID MARKERS ---------- */
+
+main::before {
+  content: "+  20.5937° N     78.9629° E     // INDIA";
+
+  position: fixed;
+
+  left: 34px;
+  bottom: 18px;
+
+  font-size: 8px;
+  letter-spacing: 0.13em;
+
+  color: rgba(177, 151, 82, 0.22);
+
+  pointer-events: none;
+
+  z-index: 20;
+}
+
+
+/* ---------- SMALL INTELLIGENCE TICKS ---------- */
+
+main::after {
+  content: "";
+
+  position: fixed;
+
+  right: 34px;
+  bottom: 18px;
+
+  width: 80px;
+  height: 8px;
+
+  background:
+    repeating-linear-gradient(
+      90deg,
+      rgba(177, 151, 82, 0.30) 0,
+      rgba(177, 151, 82, 0.30) 1px,
+      transparent 1px,
+      transparent 8px
+    );
+
+  opacity: 0.45;
+
+  pointer-events: none;
+  z-index: 20;
+}
+
+
+/* ---------- MOBILE ---------- */
+
+@media (max-width: 768px) {
+
+  body::before {
+    left: 8px;
+  }
+
+  body::after {
+    right: 8px;
+  }
+
+  .hero::before {
+    top: 16px;
+    left: 16px;
+
+    font-size: 7px;
+  }
+
+  .hero .hero-content::before {
+    font-size: 7px;
+  }
+
+  section::after {
+    display: none;
+  }
+
+  main::before,
+  main::after {
+    display: none;
+  }
+}
+
+
+/* ---------- LARGE SCREEN ---------- */
+
+@media (min-width: 1400px) {
+
+  body::before {
+    left: 28px;
+  }
+
+  body::after {
+    right: 28px;
+  }
+
+  .hero::before {
+    top: 40px;
+    left: 45px;
+  }
+}
