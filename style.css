@@ -3055,3 +3055,148 @@ main::after {
     left: 45px;
   }
 }
+/* =========================================================
+   R&AW — BACKGROUND DECORATION ONLY
+   DOES NOT CHANGE EXISTING ELEMENT SIZES
+========================================================= */
+
+body {
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* Fixed technical grid */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: -10;
+
+  background-image:
+    linear-gradient(
+      rgba(177, 151, 82, 0.022) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      90deg,
+      rgba(177, 151, 82, 0.022) 1px,
+      transparent 1px
+    );
+
+  background-size: 72px 72px;
+}
+
+
+/* Atmospheric background elements */
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: -9;
+
+  background:
+    radial-gradient(
+      circle at 10% 20%,
+      rgba(53, 82, 59, 0.12),
+      transparent 24%
+    ),
+    radial-gradient(
+      circle at 90% 35%,
+      rgba(177, 151, 82, 0.055),
+      transparent 20%
+    ),
+    radial-gradient(
+      circle at 50% 90%,
+      rgba(45, 72, 52, 0.09),
+      transparent 28%
+    );
+}
+
+
+/* Large subtle dossier circles */
+.hero {
+  isolation: isolate;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+
+  width: 420px;
+  height: 420px;
+
+  right: -180px;
+  top: 50%;
+
+  transform: translateY(-50%);
+
+  border: 1px solid rgba(177, 151, 82, 0.055);
+  border-radius: 50%;
+
+  box-shadow:
+    0 0 0 45px rgba(177, 151, 82, 0.018),
+    0 0 0 90px rgba(177, 151, 82, 0.012);
+
+  pointer-events: none;
+  z-index: -1;
+}
+
+
+/* Technical corner marks — background only */
+.hero::after {
+  content: "+  R&AW  /  INDIA  /  ARCHIVE";
+
+  position: absolute;
+
+  left: 24px;
+  bottom: 24px;
+
+  font-size: 8px;
+  letter-spacing: 0.18em;
+
+  color: rgba(177, 151, 82, 0.18);
+
+  pointer-events: none;
+}
+
+
+/* ---------- MOBILE ---------- */
+
+@media (max-width: 768px) {
+
+  body::before {
+    background-size: 55px 55px;
+  }
+
+  .hero::before {
+    width: 260px;
+    height: 260px;
+
+    right: -140px;
+  }
+
+  .hero::after {
+    left: 16px;
+    bottom: 16px;
+    font-size: 7px;
+  }
+}
+
+
+/* ---------- SMART BOARD / LARGE SCREEN ---------- */
+
+@media (min-width: 1400px) {
+
+  body::before {
+    background-size: 90px 90px;
+  }
+
+  .hero::before {
+    width: 600px;
+    height: 600px;
+
+    right: -260px;
+  }
+}
